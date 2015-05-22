@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    <package name="Car" namespace="/Car" extends="struts-global">
+		<!-- 页面显示部分 -->
+		<action name="addPage" class="com.parkcharge.car.action.CarAction" method="addPage">
+			<result name="success">/jsp/Car/addPage.jsp</result>
+		</action>
+		<action name="editPage" class="com.parkcharge.car.action.CarAction" method="editPage">
+			<result name="success">/jsp/Car/editPage.jsp</result>
+		</action>
+		<action name="jsonListPage" class="com.parkcharge.car.action.CarAction" method="jsonListPage">
+			<result name="success">/jsp/Car/jsonListPage.jsp</result>
+		</action>
+		
+		
+		<!-- 数据处理部分 -->
+		<action name="add" class="com.parkcharge.car.action.CarAction" method="add">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
+		<action name="del" class="com.parkcharge.car.action.CarAction" method="del">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
+		<action name="edit" class="com.parkcharge.car.action.CarAction" method="edit">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
+		
+		
+		<!-- Json数据部分 -->
+		<action name="getJsonList" class="com.parkcharge.car.action.CarAction" method="getJsonList">
+			<result type="json">
+				<param name="root">jsonobj</param>
+			</result>
+		</action>
+		
+    </package>
+</struts>

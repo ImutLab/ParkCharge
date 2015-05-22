@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<!-- struts公共配置 -->
+	<package name="struts-global" namespace="/" extends="struts-default">
+		<result-types>
+			<result-type name="json" class="org.apache.struts2.json.JSONResult"></result-type>
+		</result-types>
+		<!-- 手机模块:用户登录 -->
+		<global-results>
+			<result name="login_mobile">/mobile.jsp</result>
+		</global-results>
+
+		<action name="mainFramePage" class="com.parkcharge.car.action.EmployeeAction" method="mainFramePage">
+			<result name="success">/mainframe.jsp</result>
+		</action>
+	</package>
+</package>
+
+	<include file="com/parkcharge/car/struts/Car.xml" />
+	<include file="com/parkcharge/car/struts/CarBrand.xml" />
+	<include file="com/parkcharge/car/struts/CarColor.xml" />
+	<include file="com/parkcharge/car/struts/Employee.xml" />
+
+</struts>

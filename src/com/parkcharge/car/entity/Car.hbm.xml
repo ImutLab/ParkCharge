@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.parkcharge.car.entity">
+	<class name="Car" table="car">
+		<comment>车辆信息</comment>
+		<id name="id" column="car_id">
+			<generator class="increment" />
+		</id>
+
+		<property name="car_num">
+			<column name="car_num" length="50">
+				<comment>车辆号码</comment>
+			</column>
+		</property>
+
+		<many-to-one name="car_color" class="CarColor">
+			<column name="car_color_id">
+				<comment>车辆颜色id</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one name="car_brand" class="CarBrand">
+			<column name="car_brand_id">
+				<comment>车辆品牌id</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>
