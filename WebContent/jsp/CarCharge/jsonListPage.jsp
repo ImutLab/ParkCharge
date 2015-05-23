@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>用户缴费</title>
+<title>缴费记录--用户选择</title>
 <link rel="stylesheet" href="./js/jqueryMobile/jquery.mobile-1.4.5.min.css" />
 <script src="./js/jquery.min.js"></script>
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
@@ -13,7 +13,7 @@
 <body>
 	<div data-role="page" id="">
 		<div data-role="header" align="center">
-			<p>用户缴费</p>
+			<p>缴费记录--用户选择</p>
 		</div>
 		<div data-role="content">
 		<form id="form_Employee_add">
@@ -25,10 +25,6 @@
 			<div class="ui-field-contain">
 				<label for="employee_id_card">身份证号</label>
 				<input type="text" name="employee.id_card" id="employee_id_card" data-clear-btn="true" value="" disabled="disabled" placeholder="请输入身份证号" />
-			</div>
-			<div class="ui-field-contain">
-				<label for="employee_gender">性别</label>
-				<input type="text" name="employee.gender" id="employee_gender" disabled="disabled" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="car.car_num">车辆号码</label>
@@ -46,15 +42,8 @@
 				<label for="car.car_brand">车辆类型</label>
 				<input type="text" name="car.car_type" id="car_car_type" disabled="disabled" />
 			</div>
-			<div class="ui-field-contain">
-				<label for="carCharge_money">缴费金额</label>
-				<input type="number" name="carCharge.money" id="carCharge_money" data-clear-btn="true" placeholder="请输入缴费金额" />
-			</div>
-			<div class="ui-field-contain">
-				<label for="carCharge_charge_date">缴费日期</label>
-				<input type="datetime" data-clear-btn="true" name="carCharge.charge_date" id="carCharge_charge_date" placeholder="请输入缴费日期" />
-			</div>
-			<input type="button" class="ui-btn ui-corner-all"  onclick="addCharge()" value="缴费" />
+			
+			<input type="button" class="ui-btn ui-corner-all"  onclick="queryCharge()" value="查询" />
 		</form>
 		<script type="text/javascript">
 				$(function(){
@@ -76,33 +65,25 @@
 						$.getJSON('/ParkCharge/Employee/getJsonEmployeeCarByEmpId?id='+employee_id,null,function(json){
 							var data=json.data;
 							$('#employee_id_card').val(data.id_card);
-							$('#employee_gender').val(data.gender_name);
 							$('#car_car_num').val(data.car_num);
 							$('#car_car_brand_id').val(data.car_brand_name);
 							$('#car_car_color_id').val(data.car_color_name);
 							$('#car_car_type').val(data.car_type_name);
-							$('#carCharge_charge_date').val(json.charge_date);
 							$('#car_car_id').val(data.car_id);
-							
-							
 						});
 					});
 				});
 				
 				//缴费
-				function addCharge(){
+				function queryCharge(){
 					var data={
 							'car.id':$('#car_car_id').val(),
-							'carCharge.money':$('#carCharge_money').val(),
-							'carCharge.charge_date':$('#carCharge_charge_date').val()
 							};
 					
-					$.ajax({url:'/ParkCharge/CarCharge/add',
+					$.mobile.changePage('/ParkCharge/CarCharge/jsonListByCarIdPage',{
 						type:'post',
 						data:data,
-						contentType:"application/x-www-form-urlencoded; charset=UTF-8",
-						});
-					
+					});
 				}
 			</script>
 		</div>

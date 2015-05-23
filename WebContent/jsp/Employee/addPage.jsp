@@ -95,7 +95,7 @@
 							'car.car_num':$('#car_car_num').val(),
 							'car.car_color.id':$('#car_car_color_id').val(),
 							'car.car_brand.id':$('#car_car_brand_id').val(),
-							'car.car_type':$('#car_type').val(),
+							'car.car_type':$('#car_car_type').val(),
 							'carCharge.money':$('#carCharge_money').val(),
 							'carCharge.charge_date':$('#carCharge_charge_date').val()
 							};

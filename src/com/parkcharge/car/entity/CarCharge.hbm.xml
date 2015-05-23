@@ -42,4 +42,32 @@
 		where c_ch.car_id=:car_id 
 		]]>
 	</sql-query>
+	
+	<!-- 根据车辆id查询车辆收费信息 -->
+	<sql-query name="CarCharge.getJsonListCarChargeByCarId">
+		<![CDATA[
+			select * from car_charge where car_id=:car_id
+			order by car_charge_id desc
+		]]>
+	</sql-query>
+	
+	<!-- 欠费查询 -->
+	<sql-query name="CarCharge.getJsonListExpire">
+		<![CDATA[
+		select c_ch_main.car_id,expire_date,c.car_num,e.name as emp_name,c_b.name as car_brand_name,c_c.name as car_color_name from (
+		select car_id,max(c_ch.expire_date) expire_date from car_charge c_ch
+		where c_ch.expire_date<CURRENT_DATE()
+		group by car_id ) c_ch_main
+		left join car c
+		on c.car_id=c_ch_main.car_id
+		left join employee e
+		on e.employee_id=c.employee_id
+		left join car_brand c_b
+		on c.car_brand_id=c_b.car_brand_id
+		left join car_color c_c
+		on c_c.car_color_id=c.car_color_id
+		where e.isdel=0
+		and c.isdel=0
+		]]>
+	</sql-query>
 </hibernate-mapping>

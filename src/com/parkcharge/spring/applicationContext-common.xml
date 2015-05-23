@@ -69,6 +69,7 @@
 			<tx:method name="edit*" propagation="REQUIRED" />
 			<tx:method name="del*" propagation="REQUIRED" />
 			<tx:method name="execute*" propagation="REQUIRED" />
+			<tx:method name="destory*" propagation="REQUIRED" />
 		</tx:attributes>
 	</tx:advice>
 

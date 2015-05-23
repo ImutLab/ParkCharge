@@ -17,7 +17,10 @@
 		<action name="jsonListPage" class="com.parkcharge.car.action.CarAction" method="jsonListPage">
 			<result name="success">/jsp/Car/jsonListPage.jsp</result>
 		</action>
-		
+		<!-- 车辆注销 -->
+		<action name="destoryCar" class="com.parkcharge.car.action.CarAction" method="destoryCar">
+			<result name="success" type="redirectAction">../CarCharge/expireListPage</result>
+		</action>
 		
 		<!-- 数据处理部分 -->
 		<action name="add" class="com.parkcharge.car.action.CarAction" method="add">
@@ -29,6 +32,7 @@
 		<action name="edit" class="com.parkcharge.car.action.CarAction" method="edit">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
+		
 		
 		
 		<!-- Json数据部分 -->

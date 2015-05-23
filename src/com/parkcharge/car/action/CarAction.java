@@ -1,7 +1,11 @@
 package com.parkcharge.car.action;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.parkcharge.base.action.BaseAction;
 import com.parkcharge.base.action.BaseActionImpl;
+import com.parkcharge.car.entity.Car;
+import com.parkcharge.car.service.CarService;
 
 /**
  * 车辆信息Action
@@ -11,6 +15,18 @@ import com.parkcharge.base.action.BaseActionImpl;
  */
 @SuppressWarnings("serial")
 public class CarAction extends BaseActionImpl implements BaseAction {
+
+	@Autowired
+	private CarService carService;
+	private Car car;
+
+	public Car getCar() {
+		return car;
+	}
+
+	public void setCar(Car car) {
+		this.car = car;
+	}
 
 	@Override
 	public String add() {
@@ -46,6 +62,10 @@ public class CarAction extends BaseActionImpl implements BaseAction {
 	public String getJsonList() {
 		return SUCCESS;
 	}
-	
+
+	public String destoryCar() {
+		carService.destoryCar(car);
+		return SUCCESS;
+	}
 
 }

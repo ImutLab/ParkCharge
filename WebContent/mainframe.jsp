@@ -16,21 +16,22 @@
 			<p>主页</p>
 		</div>
 		<div data-role="content">
-			<ul data-role="listview" data-inset="true" data-shadow="false">
-				<li data-role="collapsible" data-iconpos="right" data-inset="false">
-					<h2>信息登记</h2>
-					<ul data-role="listview" >
-						<li><a href="Employee/addPage">新户登记</a></li>
-					</ul>
-				</li>
-				<li data-role="collapsible" data-iconpos="right" data-inset="false">
-					<h2>缴费管理</h2>
-					<ul data-role="listview" >
-						<li><a href="CarCharge/selectEmployeeCarPage">用户缴费</a></li>
-						<li><a href="CarCharge/jsonListPage">缴费记录</a></li>
-					</ul>
-				</li>
-			</ul>
+			<div data-role="collapsible" data-inset="true">
+				<h2>信息登记</h2>
+				<ul data-role="listview" >
+					<li><a href="/ParkCharge/Employee/addPage">新户登记</a></li>
+					<li><a href="/ParkCharge/Employee/addPage">车辆颜色管理</a></li>
+					<li><a href="/ParkCharge/Employee/addPage">车辆品牌管理</a></li>
+				</ul>
+			</div>
+			<div data-role="collapsible" data-inset="true">
+				<h2>缴费管理</h2>
+				<ul data-role="listview" >
+					<li><a href="/ParkCharge/CarCharge/addPage">用户缴费</a></li>
+					<li><a href="/ParkCharge/CarCharge/jsonListPage">缴费记录</a></li>
+					<li><a href="/ParkCharge/CarCharge/expireListPage">欠费查询</a></li>
+				</ul>
+			</div>
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="left">

@@ -37,7 +37,7 @@
 	
 	<sql-query name="Employee.getJsonList">
 		<![CDATA[
-		select * from employee
+		select * from employee where isdel=0
 		]]>
 	</sql-query>
 	
