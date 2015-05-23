@@ -13,7 +13,7 @@ public class Employee {
 	private int id;
 	private String name;// 姓名
 	private String id_card;// 身份证号
-	private String gender;// 性别
+	private int gender;// 性别,0男，1女
 	private Set<Car> cars = new HashSet<Car>();// 车辆信息
 
 	public int getId() {
@@ -40,11 +40,11 @@ public class Employee {
 		this.id_card = id_card;
 	}
 
-	public String getGender() {
+	public int getGender() {
 		return gender;
 	}
 
-	public void setGender(String gender) {
+	public void setGender(int gender) {
 		this.gender = gender;
 	}
 

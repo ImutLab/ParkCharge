@@ -28,8 +28,8 @@
 			<div class="ui-field-contain">
 				<label for="employee.gender">性别</label>
 				<select name="employee.gender" id="employee_gender">
-					<option value="男">男</option>
-					<option value="女">女</option>
+					<option value="0">男</option>
+					<option value="1">女</option>
 				</select>
 			</div>
 			<div class="ui-field-contain">
