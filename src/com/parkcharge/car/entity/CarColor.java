@@ -9,6 +9,15 @@ package com.parkcharge.car.entity;
 public class CarColor {
 	private int id;
 	private String name;// 汽车颜色名称
+	private int isdel;// 是否删除，0正常，1删除
+
+	public int getIsdel() {
+		return isdel;
+	}
+
+	public void setIsdel(int isdel) {
+		this.isdel = isdel;
+	}
 
 	public int getId() {
 		return id;

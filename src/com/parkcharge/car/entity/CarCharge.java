@@ -11,6 +11,15 @@ public class CarCharge {
 	private int money;// 缴费金额
 	private String charge_date;// 缴费日期
 	private String expire_date;// 过期日期
+	private int isdel;// 是否删除，0正常，1删除
+
+	public int getIsdel() {
+		return isdel;
+	}
+
+	public void setIsdel(int isdel) {
+		this.isdel = isdel;
+	}
 
 	private Car car;// 车辆信息
 

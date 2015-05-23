@@ -12,11 +12,16 @@
 				<comment>汽车颜色</comment>
 			</column>
 		</property>
+		<property name="isdel" type="int" length="1">
+			<column name="isdel" not-null="true" default="0">
+				<comment>是否删除，0正常，1删除</comment>
+			</column>
+		</property>
 	</class>
 	
 	<sql-query name="CarColor.getJsonList">
 		<![CDATA[
-		select * from car_color
+		select * from car_color where isdel=0
 		]]>
 	</sql-query>
 </hibernate-mapping>

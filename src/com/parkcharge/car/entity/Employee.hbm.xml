@@ -18,7 +18,7 @@
 			</column>
 		</property>
 		<property name="gender" type="int" length="1">
-			<column name="gender" not-null="true">
+			<column name="gender" not-null="true" default="0">
 				<comment>性别,0男，1女</comment>
 			</column>
 		</property>

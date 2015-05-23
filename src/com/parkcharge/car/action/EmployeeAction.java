@@ -67,10 +67,11 @@ public class EmployeeAction extends BaseActionImpl implements BaseAction {
 
 	@Override
 	public String add() {
-		System.out.println(carCharge.getCharge_date());
 		car.setCar_brand(carBrandService.getEntity(car.getCar_brand().getId()));
 		car.setCar_color(carColorService.getEntity(car.getCar_color().getId()));
-		employeeService.add(employee, car, carCharge);
+		Map<String,Object> map_json=new HashMap<String,Object>();
+		map_json.put("data", employeeService.add(employee, car, carCharge));
+		jsonobj=JSONObject.fromObject(map_json);
 		return SUCCESS;
 	}
 

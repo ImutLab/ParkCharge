@@ -104,8 +104,13 @@
 						type:'post',
 						data:data,
 						contentType:"application/x-www-form-urlencoded; charset=UTF-8",
-						success:function(msg){
-							alert(msg);
+						success:function(json){
+							if(json.data==true){
+								alert("新户登记成功!");
+								$.mobile.changePage('/ParkCharge/mainFramePage');
+							}else{
+								alert("新户登记失败...");
+							}
 						},
 						});
 					
