@@ -25,4 +25,11 @@
 		
 		<many-to-one name="car" class="Car" column="car_id" />
 	</class>
+	
+	<!-- 根据缴费日期来查询过期日期 -->
+	<sql-query name="CarCharge.query_expire_date_by_charge_date">
+		<![CDATA[
+		select DATE_FORMAT(DATE_ADD(':charge_date',INTERVAL 1 MONTH),'%Y-%m-%d') as expire_date from dual
+		]]>
+	</sql-query>
 </hibernate-mapping>
