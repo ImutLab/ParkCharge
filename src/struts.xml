@@ -13,11 +13,11 @@
 			<result name="login_mobile">/mobile.jsp</result>
 		</global-results>
 
-		<action name="mainFramePage" class="com.parkcharge.car.action.EmployeeAction" method="mainFramePage">
+		<action name="mainFramePage" class="com.parkcharge.car.action.EmployeeAction"
+			method="mainFramePage">
 			<result name="success">/mainframe.jsp</result>
 		</action>
 	</package>
-</package>
 
 	<include file="com/parkcharge/car/struts/Car.xml" />
 	<include file="com/parkcharge/car/struts/CarBrand.xml" />

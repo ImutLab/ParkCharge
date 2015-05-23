@@ -14,7 +14,6 @@ public class Employee {
 	private String name;// 姓名
 	private String id_card;// 身份证号
 	private String gender;// 性别
-	private int age;// 年龄
 	private Set<Car> cars = new HashSet<Car>();// 车辆信息
 
 	public int getId() {
@@ -47,14 +46,6 @@ public class Employee {
 
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
 	}
 
 	public Set<Car> getCars() {

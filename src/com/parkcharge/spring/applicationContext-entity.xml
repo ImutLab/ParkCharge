@@ -17,6 +17,7 @@
 				<value>com/parkcharge/car/entity/Car.hbm.xml</value>
 				<value>com/parkcharge/car/entity/CarBrand.hbm.xml</value>
 				<value>com/parkcharge/car/entity/CarColor.hbm.xml</value>
+				<value>com/parkcharge/car/entity/CarCharge.hbm.xml</value>
 				<value>com/parkcharge/car/entity/Employee.hbm.xml</value>
 			</list>
 		</property>

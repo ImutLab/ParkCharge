@@ -13,4 +13,10 @@
 			</column>
 		</property>
 	</class>
+	
+	<sql-query name="CarColor.getJsonList">
+		<![CDATA[
+		select * from car_color
+		]]>
+	</sql-query>
 </hibernate-mapping>

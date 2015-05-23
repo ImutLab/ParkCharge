@@ -12,6 +12,11 @@
 				<comment>车辆号码</comment>
 			</column>
 		</property>
+		<property name="car_type" type="int" >
+			<column name="car_type" not-null="true" default="0">
+				<comment>车辆类型:0电动车，1摩托车，2小汽车</comment>
+			</column>
+		</property>
 
 		<many-to-one name="car_color" class="CarColor">
 			<column name="car_color_id">
@@ -24,5 +29,16 @@
 				<comment>车辆品牌id</comment>
 			</column>
 		</many-to-one>
+		
+		<many-to-one name="employee" class="Employee">
+			<column name="employee_id">
+				<comment>人员id</comment>
+			</column>
+		</many-to-one>
+		
+		<set name="carCharges" >
+			<key column="car_id" />
+			<one-to-many class="CarCharge" />
+		</set>
 	</class>
 </hibernate-mapping>

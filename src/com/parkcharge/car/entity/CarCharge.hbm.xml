@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.parkcharge.car.entity">
+	<class name="CarCharge" table="car_charge">
+		<comment>车辆收费表</comment>
+		<id name="id" column="car_charge_id" >
+			<generator class="increment" />
+		</id>
+
+		<property name="money">
+			<column name="money" not-null="true" default="0" >
+				<comment>缴费金额</comment>
+			</column>
+		</property>
+		<property name="charge_date" type="date">
+			<column name="charge_date" >
+				<comment>缴费日期</comment>
+			</column>
+		</property>
+		<property name="expire_date" type="date">
+			<column name="expire_date" >
+				<comment>过期日期</comment>
+			</column>
+		</property>
+		
+		<many-to-one name="car" class="Car" column="car_id" />
+	</class>
+</hibernate-mapping>

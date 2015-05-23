@@ -1,50 +1,55 @@
 package com.parkcharge.car.action;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.parkcharge.base.action.BaseAction;
 import com.parkcharge.base.action.BaseActionImpl;
+import com.parkcharge.car.entity.Car;
+import com.parkcharge.car.entity.Employee;
+import com.parkcharge.car.service.EmployeeService;
 
 @SuppressWarnings("serial")
 public class EmployeeAction extends BaseActionImpl implements BaseAction{
-
+	
+	@Autowired
+	private EmployeeService employeeService;
+	
+	private Employee employee;
+	private Car car;
+	
+	
 	@Override
 	public String add() {
-		// TODO Auto-generated method stub
 		return SUCCESS;
 	}
 
 	@Override
 	public String del() {
-		// TODO Auto-generated method stub
 		return SUCCESS;
 	}
 
 	@Override
 	public String edit() {
-		// TODO Auto-generated method stub
 		return SUCCESS;
 	}
 
 	@Override
 	public String addPage() {
-		// TODO Auto-generated method stub
 		return SUCCESS;
 	}
 
 	@Override
 	public String editPage() {
-		// TODO Auto-generated method stub
 		return SUCCESS;
 	}
 
 	@Override
 	public String jsonListPage() {
-		// TODO Auto-generated method stub
 		return SUCCESS;
 	}
 
 	@Override
 	public String getJsonList() {
-		// TODO Auto-generated method stub
 		return SUCCESS;
 	}
 	
