@@ -16,37 +16,31 @@ public class CarBrandAction extends BaseActionImpl implements BaseAction {
 	
 	@Override
 	public String add() {
-		// TODO Auto-generated method stub
 		return SUCCESS;
 	}
 
 	@Override
 	public String del() {
-		// TODO Auto-generated method stub
 		return SUCCESS;
 	}
 
 	@Override
 	public String edit() {
-		// TODO Auto-generated method stub
 		return SUCCESS;
 	}
 
 	@Override
 	public String addPage() {
-		// TODO Auto-generated method stub
 		return SUCCESS;
 	}
 
 	@Override
 	public String editPage() {
-		// TODO Auto-generated method stub
 		return SUCCESS;
 	}
 
 	@Override
 	public String jsonListPage() {
-		// TODO Auto-generated method stub
 		return SUCCESS;
 	}
 
