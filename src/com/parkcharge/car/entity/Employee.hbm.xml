@@ -23,7 +23,7 @@
 			</column>
 		</property>
 
-		<set name="cars">
+		<set name="cars" cascade="all" >
 			<key column="employee_id" />
 			<one-to-many class="Car" />
 		</set>

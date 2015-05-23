@@ -12,13 +12,13 @@
 				<comment>缴费金额</comment>
 			</column>
 		</property>
-		<property name="charge_date" type="date">
-			<column name="charge_date" >
+		<property name="charge_date">
+			<column name="charge_date" length="50">
 				<comment>缴费日期</comment>
 			</column>
 		</property>
-		<property name="expire_date" type="date">
-			<column name="expire_date" >
+		<property name="expire_date">
+			<column name="expire_date" length="50" >
 				<comment>过期日期</comment>
 			</column>
 		</property>

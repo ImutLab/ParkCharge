@@ -1,25 +1,73 @@
 package com.parkcharge.car.action;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.chenjie.util.DateUtils;
 import com.parkcharge.base.action.BaseAction;
 import com.parkcharge.base.action.BaseActionImpl;
 import com.parkcharge.car.entity.Car;
+import com.parkcharge.car.entity.CarCharge;
 import com.parkcharge.car.entity.Employee;
+import com.parkcharge.car.service.CarBrandService;
+import com.parkcharge.car.service.CarColorService;
 import com.parkcharge.car.service.EmployeeService;
 
 @SuppressWarnings("serial")
-public class EmployeeAction extends BaseActionImpl implements BaseAction{
-	
+public class EmployeeAction extends BaseActionImpl implements BaseAction {
+
 	@Autowired
 	private EmployeeService employeeService;
-	
+	@Autowired
+	private CarBrandService carBrandService;
+	@Autowired
+	private CarColorService carColorService;
+
 	private Employee employee;
 	private Car car;
+	private CarCharge carCharge;
+	private String charge_date;
 	
-	
+
+	public String getCharge_date() {
+		return charge_date;
+	}
+
+	public void setCharge_date(String charge_date) {
+		this.charge_date = charge_date;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+	public Car getCar() {
+		return car;
+	}
+
+	public void setCar(Car car) {
+		this.car = car;
+	}
+
+	public CarCharge getCarCharge() {
+		return carCharge;
+	}
+
+	public void setCarCharge(CarCharge carCharge) {
+		this.carCharge = carCharge;
+	}
+
 	@Override
 	public String add() {
+		System.out.println(carCharge.getCharge_date());
+		car.setCar_brand(carBrandService.getEntity(car.getCar_brand().getId()));
+		car.setCar_color(carColorService.getEntity(car.getCar_color().getId()));
+		employeeService.add(employee, car, carCharge);
 		return SUCCESS;
 	}
 
@@ -35,6 +83,7 @@ public class EmployeeAction extends BaseActionImpl implements BaseAction{
 
 	@Override
 	public String addPage() {
+		charge_date=DateUtils.formatDate(new Date());
 		return SUCCESS;
 	}
 
@@ -52,9 +101,10 @@ public class EmployeeAction extends BaseActionImpl implements BaseAction{
 	public String getJsonList() {
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * 返回到主页
+	 * 
 	 * @return
 	 */
 	public String mainFramePage() {

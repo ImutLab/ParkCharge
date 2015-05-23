@@ -36,7 +36,7 @@
 			</column>
 		</many-to-one>
 		
-		<set name="carCharges" >
+		<set name="carCharges" cascade="all" >
 			<key column="car_id" />
 			<one-to-many class="CarCharge" />
 		</set>
