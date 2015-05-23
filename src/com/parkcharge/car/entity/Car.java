@@ -13,10 +13,19 @@ public class Car {
 	private int id;
 	private String car_num;// 车辆号码
 	private int car_type;// 车辆类型:0电动车，1摩托车，2小汽车
+	private int isdel;// 是否删除，0正常，1删除
 	private CarColor car_color;// 车辆颜色
 	private CarBrand car_brand;// 车辆品牌
 	private Employee employee;// 对应人员
 	private Set<CarCharge> carCharges = new HashSet<CarCharge>();// 车辆收费记录表
+
+	public int getIsdel() {
+		return isdel;
+	}
+
+	public void setIsdel(int isdel) {
+		this.isdel = isdel;
+	}
 
 	public Set<CarCharge> getCarCharges() {
 		return carCharges;

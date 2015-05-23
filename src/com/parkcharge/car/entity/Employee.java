@@ -14,7 +14,16 @@ public class Employee {
 	private String name;// 姓名
 	private String id_card;// 身份证号
 	private int gender;// 性别,0男，1女
+	private int isdel;// 是否删除，0正常，1删除
 	private Set<Car> cars = new HashSet<Car>();// 车辆信息
+
+	public int getIsdel() {
+		return isdel;
+	}
+
+	public void setIsdel(int isdel) {
+		this.isdel = isdel;
+	}
 
 	public int getId() {
 		return id;

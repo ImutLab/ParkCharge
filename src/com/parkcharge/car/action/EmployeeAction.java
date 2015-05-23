@@ -1,6 +1,10 @@
 package com.parkcharge.car.action;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -28,7 +32,6 @@ public class EmployeeAction extends BaseActionImpl implements BaseAction {
 	private Car car;
 	private CarCharge carCharge;
 	private String charge_date;
-	
 
 	public String getCharge_date() {
 		return charge_date;
@@ -83,7 +86,7 @@ public class EmployeeAction extends BaseActionImpl implements BaseAction {
 
 	@Override
 	public String addPage() {
-		charge_date=DateUtils.formatDate(new Date());
+		charge_date = DateUtils.formatDate(new Date());
 		return SUCCESS;
 	}
 
@@ -99,6 +102,24 @@ public class EmployeeAction extends BaseActionImpl implements BaseAction {
 
 	@Override
 	public String getJsonList() {
+		jsonobj = JSONObject.fromObject(employeeService.getJsonMapByNameSql("Employee.getJsonList", null, 1, 100));
+		return SUCCESS;
+	}
+
+	/**
+	 * 根据人员id来获取相应的人员车辆信息
+	 * 
+	 * @return
+	 */
+	public String getJsonEmployeeCarByEmpId() {
+		charge_date = DateUtils.formatDate(new Date());
+		Map<String,Object> queryParams=new HashMap<String,Object>();
+		queryParams.put("employee_id", id);
+		
+		Map<String, Object> map_json = new HashMap<String, Object>();
+		map_json.put("data", employeeService.queryByNameSql("Employee.getJsonEmployeeCarByEmpId", queryParams).get(0));
+		map_json.put("charge_date", charge_date);
+		jsonobj = JSONObject.fromObject(map_json);
 		return SUCCESS;
 	}
 

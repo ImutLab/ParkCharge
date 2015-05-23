@@ -44,6 +44,11 @@
 				<param name="root">jsonobj</param>
 			</result>
 		</action>
-
+		<!-- 根据人员id来获取相应的人员Json信息 -->
+		<action name="getJsonEmployeeCarByEmpId" class="com.parkcharge.car.action.EmployeeAction" method="getJsonEmployeeCarByEmpId">
+			<result type="json">
+				<param name="root">jsonobj</param>
+			</result>
+		</action>
 	</package>
 </struts>

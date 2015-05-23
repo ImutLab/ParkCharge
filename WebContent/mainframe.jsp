@@ -23,6 +23,13 @@
 						<li><a href="Employee/addPage">新户登记</a></li>
 					</ul>
 				</li>
+				<li data-role="collapsible" data-iconpos="right" data-inset="false">
+					<h2>缴费管理</h2>
+					<ul data-role="listview" >
+						<li><a href="CarCharge/selectEmployeeCarPage">用户缴费</a></li>
+						<li><a href="CarCharge/jsonListPage">缴费记录</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 		<div data-role="footer" data-position="fixed">

@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>新户登记</title>
+<title>用户缴费--用户车辆选择界面</title>
 <link rel="stylesheet" href="./js/jqueryMobile/jquery.mobile-1.4.5.min.css" />
 <script src="./js/jquery.min.js"></script>
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
@@ -13,94 +13,91 @@
 <body>
 	<div data-role="page" id="">
 		<div data-role="header" align="center">
-			<p>新户登记</p>
+			<p>用户缴费</p>
 		</div>
 		<div data-role="content">
-		<form id="form_Employee_add" action="/ParkCharge/Employee/add" method="POST" data-ajax="false">
+		<form id="form_Employee_add">
+			<input type="hidden" id="car_car_id" name="car.car_id" value="" />
 			<div class="ui-field-contain">
-				<label for="employee_name">姓名</label>
-				<input type="text" name="employee.name" id="employee_name" data-clear-btn="true" value="" placeholder="请输入姓名" />
+				<label for="employee_id">姓名</label>
+				<select name="employee.id" id="employee_id"></select>
 			</div>
 			<div class="ui-field-contain">
 				<label for="employee_id_card">身份证号</label>
-				<input type="text" name="employee.id_card" id="employee_id_card" data-clear-btn="true" value="" placeholder="请输入身份证号" />
+				<input type="text" name="employee.id_card" id="employee_id_card" data-clear-btn="true" value="" disabled="disabled" placeholder="请输入身份证号" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="employee_gender">性别</label>
-				<select name="employee.gender" id="employee_gender">
-					<option value="0">男</option>
-					<option value="1">女</option>
-				</select>
+				<input type="text" name="employee.gender" id="employee_gender" disabled="disabled" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="car.car_num">车辆号码</label>
-				<input type="text" name="car.car_num" id="car_car_num" data-clear-btn="true" value="" placeholder="请输入车辆号码" />
+				<input type="text" name="car.car_num" id="car_car_num" data-clear-btn="true" value="" disabled="disabled" placeholder="请输入车辆号码" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="car.car_color_id">车辆颜色</label>
-				<select name="car.car_color_id" id="car_car_color_id"></select>
+				<input type="text" name="car.car_color_id" id="car_car_color_id" disabled="disabled" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="car.car_brand_id">车辆品牌</label>
-				<select name="car.car_brand_id" id="car_car_brand_id"></select>
+				<input type="text" name="car.car_brand_id" id="car_car_brand_id" disabled="disabled" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="car.car_brand">车辆类型</label>
-				<select name="car.car_type" id="car_car_type">
-					<option value="0">电动车</option>
-					<option value="1">摩托车</option>
-					<option value="2">小汽车</option>
-				</select>
+				<input type="text" name="car.car_type" id="car_car_type" disabled="disabled" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="carCharge_money">缴费金额</label>
 				<input type="number" name="carCharge.money" id="carCharge_money" data-clear-btn="true" placeholder="请输入缴费金额" />
 			</div>
 			<div class="ui-field-contain">
-				<label for="carCharge_charge_date">登记日期</label>
-				<input type="datetime" data-clear-btn="true" name="carCharge.charge_date" id="carCharge_charge_date" placeholder="请输入登记日期" value='<s:property value="charge_date" />' />
+				<label for="carCharge_charge_date">缴费日期</label>
+				<input type="datetime" data-clear-btn="true" name="carCharge.charge_date" id="carCharge_charge_date" placeholder="请输入缴费日期" />
 			</div>
-			<!-- <a href="#" class="ui-btn ui-corner-all"  onclick="regInfo()">登记</a> -->
-			<input type="button" class="ui-btn ui-corner-all"  onclick="regInfo()" value="登记" />
+			<input type="button" class="ui-btn ui-corner-all"  onclick="addCharge()" value="缴费" />
 		</form>
 		<script type="text/javascript">
 				$(function(){
-					//初始化车辆颜色
-					$.getJSON('/ParkCharge/CarColor/getJsonList',null,function(json){
-						var car_car_color_id=$('#car_car_color_id');
+					//初始化人员选择
+					$.getJSON('/ParkCharge/Employee/getJsonList',null,function(json){
+						var employee_id=$('#employee_id');
 						var rows=json.rows;
 						$(rows).each(function(i){
 							var x=rows[i];
-							car_car_color_id.append("<option value='"+x.car_color_id+"'>"+x.name+"</option>");
+							employee_id.append("<option value='"+x.employee_id+"'>"+x.name+"</option>");
 						});
 					});
 					
-					//初始化车辆品牌
-					$.getJSON('/ParkCharge/CarBrand/getJsonList',null,function(json){
-						var car_car_brand_id=$('#car_car_brand_id');
-						var rows=json.rows;
-						$(rows).each(function(i){
-							var x=rows[i];
-							car_car_brand_id.append("<option value='"+x.car_brand_id+"'>"+x.name+"</option>");
+					
+					//绑定人员选择事件，当选择人员的时候，就向后台发送人员id获取人员json数据
+					$('#employee_id').change(function(){
+						var employee_id=$('#employee_id').val();
+						
+						$.getJSON('/ParkCharge/Employee/getJsonEmployeeCarByEmpId?id='+employee_id,null,function(json){
+							var data=json.data;
+							$('#employee_id_card').val(data.id_card);
+							$('#employee_gender').val(data.gender_name);
+							$('#car_car_num').val(data.car_num);
+							$('#car_car_brand_id').val(data.car_brand_name);
+							$('#car_car_color_id').val(data.car_color_name);
+							$('#car_car_type').val(data.car_type_name);
+							$('#carCharge_charge_date').val(json.charge_date);
+							$('#car_car_id').val(data.car_id);
+							
+							
 						});
 					});
 				});
 				
-				//登记信息
-				function regInfo(){
+				//缴费
+				function addCharge(){
 					var data={
-							'employee.name':$('#employee_name').val(),
-							'employee.id_card':$('#employee_id_card').val(),
-							'employee.gender':$('#employee_gender').val(),
-							'car.car_num':$('#car_car_num').val(),
-							'car.car_color.id':$('#car_car_color_id').val(),
-							'car.car_brand.id':$('#car_car_brand_id').val(),
-							'car.car_type':$('#car_type').val(),
+							'car.id':$('#car_car_id').val(),
 							'carCharge.money':$('#carCharge_money').val(),
 							'carCharge.charge_date':$('#carCharge_charge_date').val()
 							};
 					
-					$.ajax({url:'/ParkCharge/Employee/add',
+					$.ajax({url:'/ParkCharge/CarCharge/add',
 						type:'post',
 						data:data,
 						contentType:"application/x-www-form-urlencoded; charset=UTF-8",

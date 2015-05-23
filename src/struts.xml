@@ -22,6 +22,7 @@
 	<include file="com/parkcharge/car/struts/Car.xml" />
 	<include file="com/parkcharge/car/struts/CarBrand.xml" />
 	<include file="com/parkcharge/car/struts/CarColor.xml" />
+	<include file="com/parkcharge/car/struts/CarCharge.xml" />
 	<include file="com/parkcharge/car/struts/Employee.xml" />
 
 </struts>
