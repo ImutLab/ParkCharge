@@ -62,4 +62,30 @@
 		where c.isdel=0 and e.employee_id=:employee_id
 		]]>
 	</sql-query>
+	
+	<sql-query name="Employee.getJsonListUnionBrandColorCharge">
+		<![CDATA[
+		select c.car_id,e.employee_id,e.name emp_name,car_num,e.id_card,
+		case car_type 
+			when 0 then '电动车' when 1 then '摩托车' else '小汽车' 
+		end as car_type_name,
+		case e.gender 
+			when 0 then '男' else '女' 
+		end as gender_name,
+		c_b.name as car_brand_name,
+		c_c.name as car_color_name,
+		c_ch.expire_date
+		from car c
+		left join employee e
+		on c.employee_id=e.employee_id
+		left join car_brand c_b
+		on c.car_brand_id=c_b.car_brand_id
+		left join car_color c_c
+		on c.car_color_id=c_c.car_color_id
+		left join (select car_id,max(expire_date) expire_date from car_charge group by car_id) c_ch
+		on c_ch.car_id=c.car_id
+		where c.isdel=0
+		and e.isdel=0
+		]]>
+	</sql-query>
 </hibernate-mapping>

@@ -54,7 +54,9 @@ public class CarChargeAction extends BaseActionImpl implements BaseAction {
 	@Override
 	public String add() {
 		car = carService.getEntity(car.getId());
-		carChargeService.add(carCharge, car);
+		Map<String,Object> map_json=new HashMap<String,Object>();
+		map_json.put("car_id", carChargeService.add(carCharge, car));
+		jsonobj=JSONObject.fromObject(map_json);
 		return SUCCESS;
 	}
 
@@ -96,7 +98,7 @@ public class CarChargeAction extends BaseActionImpl implements BaseAction {
 	public String getJsonListByCarId() {
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("car_id", car.getId());
-		jsonobj = JSONObject.fromObject(carChargeService.getJsonMapByNameSql("CarCharge.getJsonListCarChargeByCarId", queryParams, 1, 100));
+		jsonobj = JSONObject.fromObject(carChargeService.getJsonMapByNameSql("CarCharge.getJsonListCarChargeByCarId", queryParams, 1, MAX_RESULT_NUM));
 		return SUCCESS;
 	}
 

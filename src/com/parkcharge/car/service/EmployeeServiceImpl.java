@@ -44,4 +44,20 @@ public class EmployeeServiceImpl extends Hibernate3CRUDImpl<Employee> implements
 		return true;
 	}
 
+	@Override
+	public boolean edit(Employee employee, Car car) {
+		try {
+			car.setEmployee(employee);
+			Set<Car> cars=new HashSet<Car>();
+			cars.add(car);
+			employee.setCars(cars);
+			this.edit(employee);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}
+
 }

@@ -16,4 +16,12 @@ public interface EmployeeService extends HibernateCRUD<Employee> {
 	 */
 	public boolean add(Employee employee, Car car, CarCharge carCharge);
 
+	/**
+	 * 修改人员信息
+	 * @param employee 人员信息
+	 * @param car 车辆信息
+	 * @return 
+	 */
+	public boolean edit(Employee employee, Car car);
+
 }

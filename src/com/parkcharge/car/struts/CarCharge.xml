@@ -25,9 +25,9 @@
 		</action>
 		
 		<!-- 数据处理部分 -->
-		<action name="add" class="com.parkcharge.car.action.CarChargeAction" method="add">
+		<!-- <action name="add" class="com.parkcharge.car.action.CarChargeAction" method="add">
 			<result name="success" type="redirectAction">jsonListPage</result>
-		</action>
+		</action> -->
 		<action name="del" class="com.parkcharge.car.action.CarChargeAction" method="del">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
@@ -45,6 +45,12 @@
 		</action>
 		<!-- 根据车辆id来查询缴费记录 -->
 		<action name="getJsonListByCarId" class="com.parkcharge.car.action.CarChargeAction" method="getJsonListByCarId">
+			<result type="json">
+				<param name="root">jsonobj</param>
+			</result>
+		</action>
+		<!-- 添加缴费记录返回json-->
+		<action name="add" class="com.parkcharge.car.action.CarChargeAction" method="add">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>

@@ -52,7 +52,7 @@
 			</div>
 			<div class="ui-field-contain">
 				<label for="carCharge_charge_date">缴费日期</label>
-				<input type="datetime" data-clear-btn="true" name="carCharge.charge_date" id="carCharge_charge_date" placeholder="请输入缴费日期" />
+				<input type="date" data-clear-btn="true" name="carCharge.charge_date" id="carCharge_charge_date" placeholder="请输入缴费日期" />
 			</div>
 			<input type="button" class="ui-btn ui-corner-all"  onclick="addCharge()" value="缴费" />
 		</form>
@@ -83,17 +83,34 @@
 							$('#car_car_type').val(data.car_type_name);
 							$('#carCharge_charge_date').val(json.charge_date);
 							$('#car_car_id').val(data.car_id);
-							
-							
 						});
 					});
 				});
 				
 				//缴费
 				function addCharge(){
+					var employee_id_card=$('#employee_id_card').val();
+					if(employee_id_card==null || employee_id_card.length==0){
+						alert("请选择缴费人员...");
+						return false;
+					}
+					
+					var carCharge_money=$('#carCharge_money').val();
+					if(carCharge_money==null || carCharge_money.length==0){
+						alert("请输入缴费金额...");
+						return false;
+					}
+					
+					var carCharge_charge_date=$('#carCharge_charge_date').val();
+					if(carCharge_charge_date==null || carCharge_charge_date.length==0){
+						alert("请输入登记日期...");
+						return false;
+					}
+					
+					
 					var data={
 							'car.id':$('#car_car_id').val(),
-							'carCharge.money':$('#carCharge_money').val(),
+							'carCharge.money':carCharge_money,
 							'carCharge.charge_date':$('#carCharge_charge_date').val()
 							};
 					
@@ -101,6 +118,14 @@
 						type:'post',
 						data:data,
 						contentType:"application/x-www-form-urlencoded; charset=UTF-8",
+						success:function(json){
+							var isQueryCarCharge=confirm("缴费成功，是否查看该车主缴费记录?");
+							if(isQueryCarCharge==true){
+								$.mobile.changePage('/ParkCharge/CarCharge/jsonListByCarIdPage?car.id='+json.car_id);
+							}else{
+								$.mobile.changePage('/ParkCharge/mainFramePage');
+							}
+						},
 						});
 					
 				}

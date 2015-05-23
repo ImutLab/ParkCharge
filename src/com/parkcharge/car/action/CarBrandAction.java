@@ -46,7 +46,7 @@ public class CarBrandAction extends BaseActionImpl implements BaseAction {
 
 	@Override
 	public String getJsonList() {
-		jsonobj=JSONObject.fromObject(carBrandService.getJsonMapByNameSql("CarBrand.getJsonList", null, 1, 100));
+		jsonobj=JSONObject.fromObject(carBrandService.getJsonMapByNameSql("CarBrand.getJsonList", null, 1, MAX_RESULT_NUM));
 		return SUCCESS;
 	}
 

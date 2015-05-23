@@ -47,7 +47,7 @@ public class CarColorAction extends BaseActionImpl implements BaseAction{
 	@Override
 	public String getJsonList() {
 		System.out.println("CarColor getJsonList is run!");
-		jsonobj=JSONObject.fromObject(carColorService.getJsonMapByNameSql("CarColor.getJsonList", null, 1, 100));
+		jsonobj=JSONObject.fromObject(carColorService.getJsonMapByNameSql("CarColor.getJsonList", null, 1, MAX_RESULT_NUM));
 		return SUCCESS;
 	}
 

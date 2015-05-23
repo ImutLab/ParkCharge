@@ -20,6 +20,7 @@
 				<h2>信息登记</h2>
 				<ul data-role="listview" >
 					<li><a href="/ParkCharge/Employee/addPage">新户登记</a></li>
+					<li><a href="/ParkCharge/Employee/jsonListPage">人员管理</a></li>
 				</ul>
 			</div>
 			<div data-role="collapsible" data-inset="true">

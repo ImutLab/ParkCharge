@@ -5,6 +5,13 @@ import com.parkcharge.car.entity.CarCharge;
 import com.persistent.dao.HibernateCRUD;
 
 public interface CarChargeService extends HibernateCRUD<CarCharge> {
-	
-	public void add(CarCharge carCharge,Car car);
+
+	/**
+	 * 添加收费记录，返回车辆id
+	 * 
+	 * @param carCharge
+	 * @param car
+	 * @return
+	 */
+	public int add(CarCharge carCharge, Car car);
 }

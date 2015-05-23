@@ -16,6 +16,8 @@ public class BaseActionImpl extends ActionSupport {
 	public Integer rows; // Easyui分页大小
 	public String errormessage; // 错误消息
 	public JSONObject jsonobj; // json对象，传递给Easyui表格
+	
+	public static final int MAX_RESULT_NUM=500;//最大结果集返回数量
 
 	public Integer getId() {
 		return id;
