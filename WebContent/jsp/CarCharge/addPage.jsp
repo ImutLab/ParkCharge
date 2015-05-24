@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>用户缴费</title>
 <link rel="stylesheet" href="./js/jqueryMobile/jquery.mobile-1.4.5.min.css" />
-<script src="./js/jquery.min.js"></script>
+<script src="./js/jqueryMobile/jquery.min.js"></script>
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
@@ -20,7 +20,19 @@
 			<input type="hidden" id="car_car_id" name="car.car_id" value="" />
 			<div class="ui-field-contain">
 				<label for="employee_id">姓名</label>
-				<select name="employee.id" id="employee_id"></select>
+				<select name="employee.id" id="employee_id">
+					<s:iterator value="list_employee">
+						<option value='<s:property value="employee_id"/>'><s:property value="name"/></option>
+					</s:iterator>
+				</select>
+			</div>
+			<div class="ui-field-contain">
+				<label for="carCharge_money">缴费金额</label>
+				<input type="number" name="carCharge.money" id="carCharge_money" data-clear-btn="true" placeholder="请输入缴费金额" />
+			</div>
+			<div class="ui-field-contain">
+				<label for="carCharge_charge_date">缴费日期</label>
+				<input type="date" data-clear-btn="true" name="carCharge.charge_date" id="carCharge_charge_date" placeholder="请输入缴费日期" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="employee_id_card">身份证号</label>
@@ -46,33 +58,29 @@
 				<label for="car.car_brand">车辆类型</label>
 				<input type="text" name="car.car_type" id="car_car_type" disabled="disabled" />
 			</div>
-			<div class="ui-field-contain">
-				<label for="carCharge_money">缴费金额</label>
-				<input type="number" name="carCharge.money" id="carCharge_money" data-clear-btn="true" placeholder="请输入缴费金额" />
-			</div>
-			<div class="ui-field-contain">
-				<label for="carCharge_charge_date">缴费日期</label>
-				<input type="date" data-clear-btn="true" name="carCharge.charge_date" id="carCharge_charge_date" placeholder="请输入缴费日期" />
-			</div>
 			<input type="button" class="ui-btn ui-corner-all"  onclick="addCharge()" value="缴费" />
 		</form>
 		<script type="text/javascript">
 				$(function(){
 					//初始化人员选择
-					$.getJSON('/ParkCharge/Employee/getJsonList',null,function(json){
+/* 					$.getJSON('/ParkCharge/Employee/getJsonList',null,function(json){
 						var employee_id=$('#employee_id');
 						var rows=json.rows;
 						$(rows).each(function(i){
 							var x=rows[i];
 							employee_id.append("<option value='"+x.employee_id+"'>"+x.name+"</option>");
 						});
-					});
+					}); */
 					
 					
 					//绑定人员选择事件，当选择人员的时候，就向后台发送人员id获取人员json数据
 					$('#employee_id').change(function(){
+						getEmployeeInfo();
+					});
+					
+					//获取用户的信息
+					function getEmployeeInfo(){
 						var employee_id=$('#employee_id').val();
-						
 						$.getJSON('/ParkCharge/Employee/getJsonEmployeeCarByEmpId?id='+employee_id,null,function(json){
 							var data=json.data;
 							$('#employee_id_card').val(data.id_card);
@@ -84,7 +92,11 @@
 							$('#carCharge_charge_date').val(json.charge_date);
 							$('#car_car_id').val(data.car_id);
 						});
-					});
+					}
+					
+					
+					//首次进入界面的时候，初始化第一个用户的信息
+					getEmployeeInfo();
 				});
 				
 				//缴费
@@ -129,13 +141,19 @@
 						});
 					
 				}
+				
+				
+				//返回到主页
+				function goHome(){
+					$.mobile.changePage('/ParkCharge/mainFramePage'); 
+				}
 			</script>
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="left">
 				<ul>
 					<li><a href="#" data-rel="back" data-icon="back">返回</a></li>
-					<li><a href="/ParkCharge/mainFramePage" data-icon="home">主页</a></li>
+					<li><a href="#" onclick="goHome()" data-icon="home">主页</a></li>
 					<li><a href="#aboutJsonListPage" data-icon="comment" data-transition="flow" data-rel="popup" data-position-to="window">关于</a></li>
 				</ul>
 			</div>

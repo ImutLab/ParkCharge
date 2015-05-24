@@ -3,17 +3,15 @@ package com.parkcharge.car.action;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import net.sf.json.JSONObject;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.parkcharge.base.action.BaseAction;
 import com.parkcharge.base.action.BaseActionImpl;
 import com.parkcharge.car.entity.Car;
 import com.parkcharge.car.entity.CarCharge;
 import com.parkcharge.car.service.CarChargeService;
 import com.parkcharge.car.service.CarService;
+import com.parkcharge.car.service.EmployeeService;
 
 @SuppressWarnings("serial")
 public class CarChargeAction extends BaseActionImpl implements BaseAction {
@@ -21,11 +19,22 @@ public class CarChargeAction extends BaseActionImpl implements BaseAction {
 	@Autowired
 	private CarChargeService carChargeService;
 	@Autowired
+	private EmployeeService employeeService;
+	@Autowired
 	private CarService carService;
 
 	private CarCharge carCharge;
 	private Car car;
 	List<Map<String, Object>> list_car_charge;
+	List<Map<String, Object>> list_employee;
+
+	public List<Map<String, Object>> getList_employee() {
+		return list_employee;
+	}
+
+	public void setList_employee(List<Map<String, Object>> list_employee) {
+		this.list_employee = list_employee;
+	}
 
 	public List<Map<String, Object>> getList_car_charge() {
 		return list_car_charge;
@@ -54,9 +63,9 @@ public class CarChargeAction extends BaseActionImpl implements BaseAction {
 	@Override
 	public String add() {
 		car = carService.getEntity(car.getId());
-		Map<String,Object> map_json=new HashMap<String,Object>();
+		Map<String, Object> map_json = new HashMap<String, Object>();
 		map_json.put("car_id", carChargeService.add(carCharge, car));
-		jsonobj=JSONObject.fromObject(map_json);
+		jsonobj = JSONObject.fromObject(map_json);
 		return SUCCESS;
 	}
 
@@ -72,6 +81,7 @@ public class CarChargeAction extends BaseActionImpl implements BaseAction {
 
 	@Override
 	public String addPage() {
+		list_employee=employeeService.queryByNameSql("Employee.getJsonList", null);
 		return SUCCESS;
 	}
 
@@ -82,6 +92,7 @@ public class CarChargeAction extends BaseActionImpl implements BaseAction {
 
 	@Override
 	public String jsonListPage() {
+		list_employee=employeeService.queryByNameSql("Employee.getJsonList", null);
 		return SUCCESS;
 	}
 

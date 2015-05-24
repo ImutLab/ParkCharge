@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>欠费查询</title>
 <link rel="stylesheet" href="./js/jqueryMobile/jquery.mobile-1.4.5.min.css" />
-<script src="./js/jquery.min.js"></script>
+<script src="./js/jqueryMobile/jquery.min.js"></script>
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
@@ -53,13 +53,18 @@
 						});
 					}
 				}
+				
+				//返回到主页
+				function goHome(){
+					$.mobile.changePage('/ParkCharge/mainFramePage'); 
+				}
 			</script>
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="left">
 				<ul>
 					<li><a href="#" data-rel="back" data-icon="back">返回</a></li>
-					<li><a href="/ParkCharge/mainFramePage" data-icon="home">主页</a></li>
+					<li><a href="#" onclick="goHome()" data-icon="home">主页</a></li>
 					<li><a href="#aboutJsonListPage" data-icon="comment" data-transition="flow" data-rel="popup" data-position-to="window">关于</a></li>
 				</ul>
 			</div>

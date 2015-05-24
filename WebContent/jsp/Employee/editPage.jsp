@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>用户修改</title>
 <link rel="stylesheet" href="./js/jqueryMobile/jquery.mobile-1.4.5.min.css" />
-<script src="./js/jquery.min.js"></script>
+<script src="./js/jqueryMobile/jquery.min.js"></script>
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
@@ -30,15 +30,15 @@
 				<input type="text" name="employee.id_card" id="employee_id_card" data-clear-btn="true" value='<s:property value="employee.id_card" />' placeholder="请输入身份证号" />
 			</div>
 			<div class="ui-field-contain">
+				<label for="car.car_num">车辆号码</label>
+				<input type="text" name="car.car_num" id="car_car_num" data-clear-btn="true" value='<s:property value="car.car_num" />' placeholder="请输入车辆号码" />
+			</div>
+			<div class="ui-field-contain">
 				<label for="employee_gender">性别</label>
 				<select name="employee.gender" id="employee_gender">
 					<option value="0">男</option>
 					<option value="1">女</option>
 				</select>
-			</div>
-			<div class="ui-field-contain">
-				<label for="car.car_num">车辆号码</label>
-				<input type="text" name="car.car_num" id="car_car_num" data-clear-btn="true" value='<s:property value="car.car_num" />' placeholder="请输入车辆号码" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="car.car_color_id">车辆颜色</label>
@@ -114,13 +114,19 @@
 						});
 					
 				}
+				
+				
+				//返回到主页
+				function goHome(){
+					$.mobile.changePage('/ParkCharge/mainFramePage'); 
+				}
 			</script>
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="left">
 				<ul>
 					<li><a href="#" data-rel="back" data-icon="back">返回</a></li>
-					<li><a href="/ParkCharge/mainFramePage" data-icon="home">主页</a></li>
+					<li><a href="#" onclick="goHome()" data-icon="home">主页</a></li>
 					<li><a href="#aboutJsonListPage" data-icon="comment" data-transition="flow" data-rel="popup" data-position-to="window">关于</a></li>
 				</ul>
 			</div>

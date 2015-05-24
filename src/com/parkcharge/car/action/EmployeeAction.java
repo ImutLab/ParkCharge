@@ -145,6 +145,8 @@ public class EmployeeAction extends BaseActionImpl implements BaseAction {
 
 	@Override
 	public String addPage() {
+		list_carBrand = carBrandService.queryByHql("From CarBrand where isdel=0", null);
+		list_carColor = carColorService.queryByHql("From CarColor where isdel=0", null);
 		charge_date = DateUtils.formatDate(new Date());
 		return SUCCESS;
 	}
