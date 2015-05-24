@@ -40,7 +40,7 @@ public class EmployeeServiceImpl extends Hibernate3CRUDImpl<Employee> implements
 			e.printStackTrace();
 			return false;
 		}
-		
+
 		return true;
 	}
 
@@ -48,7 +48,7 @@ public class EmployeeServiceImpl extends Hibernate3CRUDImpl<Employee> implements
 	public boolean edit(Employee employee, Car car) {
 		try {
 			car.setEmployee(employee);
-			Set<Car> cars=new HashSet<Car>();
+			Set<Car> cars = new HashSet<Car>();
 			cars.add(car);
 			employee.setCars(cars);
 			this.edit(employee);
@@ -56,7 +56,7 @@ public class EmployeeServiceImpl extends Hibernate3CRUDImpl<Employee> implements
 			e.printStackTrace();
 			return false;
 		}
-		
+
 		return true;
 	}
 

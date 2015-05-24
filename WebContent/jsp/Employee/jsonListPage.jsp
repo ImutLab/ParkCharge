@@ -20,7 +20,7 @@
 				<thead>
 					<tr>
 						<th data-priority="1">姓名</th>
-						<th data-priority="2">身份证</th>
+						<!-- <th data-priority="2">身份证</th> -->
 						<th data-priority="3">车辆号码</th>
 						<th data-priority="3">车辆品牌</th>
 						<th data-priority="4">车辆颜色</th>
@@ -32,7 +32,7 @@
 					<s:iterator value="list_employee">
 					<tr>
 						<td><s:property value="emp_name" /></td>
-						<td><s:property value="id_card" /></td>
+						<%-- <td><s:property value="id_card" /></td> --%>
 						<td><s:property value="car_num" /></td>
 						<td><s:property value="car_brand_name" /></td>
 						<td><s:property value="car_color_name" /></td>
