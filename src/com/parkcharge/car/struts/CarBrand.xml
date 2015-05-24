@@ -28,6 +28,10 @@
 		<action name="edit" class="com.parkcharge.car.action.CarBrandAction" method="edit">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
+		<!-- 添加默认的车辆品牌 -->
+		<action name="addDefaultCarBrand" class="com.parkcharge.car.action.CarBrandAction" method="addDefaultCarBrand">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
 		
 		
 		<!-- Json数据部分 -->

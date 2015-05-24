@@ -49,5 +49,11 @@ public class CarBrandAction extends BaseActionImpl implements BaseAction {
 		jsonobj=JSONObject.fromObject(carBrandService.getJsonMapByNameSql("CarBrand.getJsonList", null, 1, MAX_RESULT_NUM));
 		return SUCCESS;
 	}
+	
+	
+	public String addDefaultCarBrand(){
+		carBrandService.addDefaultCarBrand();
+		return SUCCESS;
+	}
 
 }

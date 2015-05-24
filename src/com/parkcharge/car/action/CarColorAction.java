@@ -50,5 +50,11 @@ public class CarColorAction extends BaseActionImpl implements BaseAction{
 		jsonobj=JSONObject.fromObject(carColorService.getJsonMapByNameSql("CarColor.getJsonList", null, 1, MAX_RESULT_NUM));
 		return SUCCESS;
 	}
+	
+	
+	public String addDefaultCarColor(){
+		carColorService.addDefaultCarColor();
+		return SUCCESS;
+	}
 
 }

@@ -28,6 +28,10 @@
 		<action name="edit" class="com.parkcharge.car.action.CarColorAction" method="edit">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
+		<!-- 添加默认的车辆颜色 -->
+		<action name="addDefaultCarColor" class="com.parkcharge.car.action.CarColorAction" method="addDefaultCarColor">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
 		
 		<!-- Json数据部分 -->
 		<action name="getJsonList" class="com.parkcharge.car.action.CarColorAction" method="getJsonList">

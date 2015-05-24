@@ -3,12 +3,12 @@
 <hibernate-mapping package="com.parkcharge.car.entity">
 	<class name="CarBrand" table="car_brand">
 		<comment>车辆品牌</comment>
-		<id name="id" column="car_brand_id" >
+		<id name="id" column="car_brand_id">
 			<generator class="increment" />
 		</id>
 
 		<property name="name">
-			<column name="name" length="50" not-null="true" >
+			<column name="name" length="50" not-null="true" unique="true">
 				<comment>品牌名称</comment>
 			</column>
 		</property>
@@ -18,7 +18,7 @@
 			</column>
 		</property>
 	</class>
-	
+
 	<sql-query name="CarBrand.getJsonList">
 		<![CDATA[
 		select * from car_brand where isdel=0
