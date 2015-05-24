@@ -88,7 +88,7 @@ public class CarColorServiceImpl extends Hibernate3CRUDImpl<CarColor> implements
 		String sql_has_car_color_name = "select 1 from car_color where name=:name";
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put("name", carColor.getName());
-		int row_count = this.getRowCountBySql(sql_has_car_color_name, null);
+		int row_count = this.getRowCountBySql(sql_has_car_color_name, params);
 
 		if (row_count > 0) {
 			return true;
