@@ -46,7 +46,7 @@
 								alert("修改车辆颜色成功...");
 								$.mobile.changePage('/ParkCharge/mainFramePage');
 							}else{
-								alert("修改车辆颜色失败，已有相同名称的车辆颜色...");
+								alert("修改失败，已有相同的车辆颜色...");
 							}
 						},
 						});

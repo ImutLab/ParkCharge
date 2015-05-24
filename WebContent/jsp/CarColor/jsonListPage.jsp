@@ -50,17 +50,17 @@
 				//删除车辆品牌
 				function del(car_brand_id){
 					var data={'id':car_brand_id};
-					
-					$.getJSON('/ParkCharge/CarColor/del',data,function(json){
-						if(json.data==true){
-							alert("删除车辆颜色成功...");
-							$.mobile.changePage('/ParkCharge/mainFramePage');
-						}else{
-							alert("删除车辆颜色失败,该车辆品牌已经被使用...");
-						}
-					});
-					
-					
+					var isdel=confirm("是否要删除该车辆颜色?");
+					if(isdel==true){
+						$.getJSON('/ParkCharge/CarColor/del',data,function(json){
+							if(json.data==true){
+								alert("删除车辆颜色成功...");
+								$.mobile.changePage('/ParkCharge/mainFramePage');
+							}else{
+								alert("该车辆颜色已经被使用...");
+							}
+						});
+					}
 				}
 				
 				//添加车辆品牌页面

@@ -43,7 +43,7 @@
 								alert("新增车辆品牌成功...");
 								$.mobile.changePage('/ParkCharge/mainFramePage');
 							}else{
-								alert("新增车辆品牌失败，已有相同名称的车辆品牌...");
+								alert("添加失败,已有相同的车辆品牌...");
 							}
 						},
 						});

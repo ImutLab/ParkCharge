@@ -50,15 +50,18 @@
 				//删除车辆品牌
 				function del(car_brand_id){
 					var data={'id':car_brand_id};
+					var isdel=confirm("是否要删除该车辆品牌?");
+					if(isdel==true){
+						$.getJSON('/ParkCharge/CarBrand/del',data,function(json){
+							if(json.data==true){
+								alert("删除车辆品牌成功...");
+								$.mobile.changePage('/ParkCharge/mainFramePage');
+							}else{
+								alert("删除失败,该品牌已经被使用...");
+							}
+						});
+					}
 					
-					$.getJSON('/ParkCharge/CarBrand/del',data,function(json){
-						if(json.data==true){
-							alert("删除车辆品牌成功...");
-							$.mobile.changePage('/ParkCharge/mainFramePage');
-						}else{
-							alert("删除车辆品牌失败,该车辆品牌已经被使用...");
-						}
-					});
 					
 					
 				}

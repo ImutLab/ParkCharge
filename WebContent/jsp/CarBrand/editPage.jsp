@@ -46,7 +46,7 @@
 								alert("修改车辆品牌成功...");
 								$.mobile.changePage('/ParkCharge/mainFramePage');
 							}else{
-								alert("修改车辆品牌失败，已有相同名称的车辆品牌...");
+								alert("修改失败,已有相同的车辆品牌...");
 							}
 						},
 						});
