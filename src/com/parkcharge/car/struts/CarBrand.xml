@@ -19,15 +19,15 @@
 		</action>
 		
 		<!-- 数据处理部分 -->
-		<action name="add" class="com.parkcharge.car.action.CarBrandAction" method="add">
+<!-- 		<action name="add" class="com.parkcharge.car.action.CarBrandAction" method="add">
 			<result name="success" type="redirectAction">jsonListPage</result>
-		</action>
-		<action name="del" class="com.parkcharge.car.action.CarBrandAction" method="del">
+		</action> -->
+<!-- 		<action name="del" class="com.parkcharge.car.action.CarBrandAction" method="del">
 			<result name="success" type="redirectAction">jsonListPage</result>
-		</action>
-		<action name="edit" class="com.parkcharge.car.action.CarBrandAction" method="edit">
+		</action> -->
+<!-- 		<action name="edit" class="com.parkcharge.car.action.CarBrandAction" method="edit">
 			<result name="success" type="redirectAction">jsonListPage</result>
-		</action>
+		</action> -->
 		<!-- 添加默认的车辆品牌 -->
 		<action name="addDefaultCarBrand" class="com.parkcharge.car.action.CarBrandAction" method="addDefaultCarBrand">
 			<result name="success" type="redirectAction">jsonListPage</result>
@@ -36,6 +36,24 @@
 		
 		<!-- Json数据部分 -->
 		<action name="getJsonList" class="com.parkcharge.car.action.CarBrandAction" method="getJsonList">
+			<result type="json">
+				<param name="root">jsonobj</param>
+			</result>
+		</action>
+		<!-- 添加车辆品牌，添加成功返回true，添加失败返回false -->
+		<action name="add" class="com.parkcharge.car.action.CarBrandAction" method="add">
+			<result type="json">
+				<param name="root">jsonobj</param>
+			</result>
+		</action>
+		<!-- 删除车辆品牌，删除成功返回true，添加失败返回false -->
+		<action name="del" class="com.parkcharge.car.action.CarBrandAction" method="del">
+			<result type="json">
+				<param name="root">jsonobj</param>
+			</result>
+		</action>
+		<!-- 修改车辆品牌，删除成功返回true，添加失败返回false -->
+		<action name="edit" class="com.parkcharge.car.action.CarBrandAction" method="edit">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>
