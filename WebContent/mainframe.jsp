@@ -22,6 +22,7 @@
 					<li><a href="/ParkCharge/Employee/addPage">新户登记</a></li>
 					<li><a href="/ParkCharge/Employee/jsonListPage">人员管理</a></li>
 					<li><a href="/ParkCharge/CarBrand/jsonListPage">车辆品牌</a></li>
+					<li><a href="/ParkCharge/CarColor/jsonListPage">车辆颜色</a></li>
 				</ul>
 			</div>
 			<div data-role="collapsible" data-inset="true">

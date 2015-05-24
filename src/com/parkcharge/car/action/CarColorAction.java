@@ -21,7 +21,7 @@ public class CarColorAction extends BaseActionImpl implements BaseAction {
 
 	private CarColor carColor;
 	private List<CarColor> list_carColor;
-
+	
 	public CarColor getCarColor() {
 		return carColor;
 	}

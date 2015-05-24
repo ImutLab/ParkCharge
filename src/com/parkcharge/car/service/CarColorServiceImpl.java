@@ -1,5 +1,8 @@
 package com.parkcharge.car.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Service;
 
 import com.parkcharge.car.entity.CarColor;
@@ -83,6 +86,8 @@ public class CarColorServiceImpl extends Hibernate3CRUDImpl<CarColor> implements
 	 */
 	private boolean hasCarColorName(CarColor carColor) {
 		String sql_has_car_color_name = "select 1 from car_color where name=:name";
+		Map<String,Object> params=new HashMap<String,Object>();
+		params.put("name", carColor.getName());
 		int row_count = this.getRowCountBySql(sql_has_car_color_name, null);
 
 		if (row_count > 0) {

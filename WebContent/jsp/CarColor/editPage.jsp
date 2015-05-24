@@ -16,17 +16,17 @@
 			<p>修改车辆颜色</p>
 		</div>
 		<div data-role="content">
-		<form id="form_Employee_add" action="/ParkCharge/Employee/add" method="POST" data-ajax="false">
+		<form id="form_Employee_add" >
 			<input type="hidden" id="hidden_car_color_id" value='<s:property value="carColor.id" />' />
 			<div class="ui-field-contain">
 				<label for="car_color_name">车辆颜色</label>
 				<input type="text" name="car_color_name" id="car_color_name" data-clear-btn="true" value='<s:property value="carColor.name" />' placeholder="请输入车辆颜色" />
 			</div>
-			<input type="button" class="ui-btn ui-corner-all"  onclick="addCarColor()" value="添加" />
+			<input type="button" class="ui-btn ui-corner-all"  onclick="editCarColor()" value="修改" />
 		</form>
 		<script type="text/javascript">
-				//登记信息
-				function addCarColor(){
+				//修改车辆品牌
+				function editCarColor(){
 					var car_color_name=$('#car_color_name').val();
 					var hidden_car_color_id=$('#hidden_car_color_id').val();
 					
@@ -35,7 +35,7 @@
 						return;
 					}
 					
-					var data={'carColr.id':hidden_car_color_id,'carColor.name':car_color_name};
+					var data={'carColor.id':hidden_car_color_id,'carColor.name':car_color_name};
 					
 					$.ajax({url:'/ParkCharge/CarColor/edit',
 						type:'post',
@@ -46,7 +46,7 @@
 								alert("修改车辆颜色成功...");
 								$.mobile.changePage('/ParkCharge/mainFramePage');
 							}else{
-								alert("修改车辆颜色失败，已有相同名称的车辆品牌...");
+								alert("修改车辆颜色失败，已有相同名称的车辆颜色...");
 							}
 						},
 						});
