@@ -36,27 +36,27 @@
 			</div>
 			<div class="ui-field-contain">
 				<label for="employee_id_card">身份证号</label>
-				<input type="text" name="employee.id_card" id="employee_id_card" data-clear-btn="true" value="" disabled="disabled" placeholder="请输入身份证号" />
+				<input type="text" name="employee.id_card" id="employee_id_card" value="" readonly="readonly" placeholder="请输入身份证号" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="employee_gender">性别</label>
-				<input type="text" name="employee.gender" id="employee_gender" disabled="disabled" />
+				<input type="text" name="employee.gender" id="employee_gender" readonly="readonly" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="car.car_num">车辆号码</label>
-				<input type="text" name="car.car_num" id="car_car_num" data-clear-btn="true" value="" disabled="disabled" placeholder="请输入车辆号码" />
+				<input type="text" name="car.car_num" id="car_car_num" value="" readonly="readonly" placeholder="请输入车辆号码" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="car.car_color_id">车辆颜色</label>
-				<input type="text" name="car.car_color_id" id="car_car_color_id" disabled="disabled" />
+				<input type="text" name="car.car_color_id" id="car_car_color_id" readonly="readonly" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="car.car_brand_id">车辆品牌</label>
-				<input type="text" name="car.car_brand_id" id="car_car_brand_id" disabled="disabled" />
+				<input type="text" name="car.car_brand_id" id="car_car_brand_id" readonly="readonly" />
 			</div>
 			<div class="ui-field-contain">
 				<label for="car.car_brand">车辆类型</label>
-				<input type="text" name="car.car_type" id="car_car_type" disabled="disabled" />
+				<input type="text" name="car.car_type" id="car_car_type" readonly="readonly" />
 			</div>
 			<input type="button" class="ui-btn ui-corner-all"  onclick="addCharge()" value="缴费" />
 		</form>
