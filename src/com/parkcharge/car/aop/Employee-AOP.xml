@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="employeeAop" class="com.parkcharge.car.aop.EmployeeAop" />
+
+	<aop:config>
+		<aop:aspect id="employeeAop" ref="employeeAop">
+			<!-- 新户登记记录 -->
+			<aop:pointcut
+				expression="execution(* com.parkcharge.car.service.EmployeeServiceImpl.add(com.parkcharge.car.entity.Employee,com.parkcharge.car.entity.Car,com.parkcharge.car.entity.CarCharge)) and args(employee,car,carCharge)"
+				id="cut_add_Employee" />
+			<aop:after-returning method="logAddEmployee" returning="returnValue" pointcut-ref="cut_add_Employee" />
+		</aop:aspect>
+	</aop:config>
+</beans>

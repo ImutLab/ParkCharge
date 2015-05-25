@@ -64,6 +64,7 @@ public class CarAction extends BaseActionImpl implements BaseAction {
 	}
 
 	public String destoryCar() {
+		car=carService.getEntityById(car.getId());
 		carService.destoryCar(car);
 		return SUCCESS;
 	}

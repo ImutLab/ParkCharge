@@ -20,7 +20,7 @@ public class CarChargeAop {
 
 	@Autowired
 	private LogService logService;
-	
+
 	/**
 	 * 添加收费日志
 	 * 
@@ -29,14 +29,12 @@ public class CarChargeAop {
 	 */
 	public void logAddCarCharge(CarCharge carCharge, Car car) {
 		System.out.println("logAddCarCharge被执行...");
-		Log log=new Log();
+		Log log = new Log();
 		log.setManager("admin");
 		log.setActionName("用户缴费");
 		log.setActionDate(DateUtils.formatDate(new Date()));
-		log.setOtherInfo("缴款人:"+car.getEmployee().getName()
-				+",缴款金额:"+carCharge.getMoney()
-				+",缴款日期:"+carCharge.getCharge_date());
-		
+		log.setOtherInfo("缴款人:" + car.getEmployee().getName() + ",缴款金额:" + carCharge.getMoney() + ",缴款日期:" + carCharge.getCharge_date());
+
 		logService.add(log);
 	}
 }

@@ -14,12 +14,18 @@
 
 	<aop:config>
 		<aop:aspect id="operatorAOP" ref="operatorAOP">
-			<!-- 记录系统登录日志 -->
-
 			<!-- 记录用户修改密码 -->
-			<aop:pointcut expression="execution(* com.parkcharge.sys.service.OperatorServiceImpl.editPass(com.parkcharge.sys.entity.Operator,String,String)) and args(operator,oldPass,newPass)"
+			<aop:pointcut
+				expression="execution(* com.parkcharge.sys.service.OperatorServiceImpl.editPass(com.parkcharge.sys.entity.Operator,String,String)) and args(operator,oldPass,newPass)"
 				id="cut_operator_editPass" />
-			<aop:after-returning method="logEditPass" returning="returnValue" pointcut-ref="cut_operator_editPass" />
+			<aop:after-returning method="logEditPass"
+				returning="returnValue" pointcut-ref="cut_operator_editPass" />
+			<!-- 记录用户登录 -->
+			<aop:pointcut
+				expression="execution(* com.parkcharge.sys.service.OperatorServiceImpl.login(String,String)) and args(uname,upass)"
+				id="cut_login_Operator" />
+			<aop:after-returning method="logLogin" returning="returnValue"
+				pointcut-ref="cut_login_Operator" />
 		</aop:aspect>
 	</aop:config>
 </beans>

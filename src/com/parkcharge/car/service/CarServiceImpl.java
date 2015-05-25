@@ -9,7 +9,7 @@ public class CarServiceImpl extends Hibernate3CRUDImpl<Car> implements CarServic
 
 	@Override
 	public void destoryCar(Car car) {
-		car=this.getEntityById(car.getId());
+		
 		String sql_destory_car="update car set isdel=1 where car_id="+car.getId();
 		String sql_destory_employee="update employee set isdel=1 where employee_id="+car.getEmployee().getId();
 		

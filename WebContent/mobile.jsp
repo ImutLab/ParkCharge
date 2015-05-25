@@ -20,7 +20,10 @@
 		<div data-role="content">
 			<div data-role="filedcontain">
 				<form id="frmLogin" action="login" method="POST" data-ajax="false">
-					<label for="uname">用户名</label> <input type="text" name="uname" id="uname" placeholder="请输入用户名" data-clear-btn="true" /> <label for="upass">密码</label> <input type="password" name="upass" id="upass" placeholder="请输入密码" data-clear-btn="true" />
+					<label for="uname">用户名</label> 
+					<input type="text" name="uname" id="uname" value="admin" placeholder="请输入用户名" data-clear-btn="true" /> 
+					<label for="upass">密码</label> 
+					<input type="password" name="upass" id="upass" value="12345" placeholder="请输入密码" data-clear-btn="true" />
 					<div data-inline="true" align="center">
 						<input type="button" class="ui-btn ui-corner-all" onclick="checkLogin()" value="登录" />
 					</div>

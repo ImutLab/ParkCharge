@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>用户管理</title>
+<title>操作记录</title>
 <link rel="stylesheet" href="./js/jqueryMobile/jquery.mobile-1.4.5.min.css" />
 <script src="./js/jqueryMobile/jquery.min.js"></script>
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
@@ -13,44 +13,32 @@
 <body>
 	<div data-role="page">
 		<div data-role="header" align="center">
-			<p>用户管理</p>
+			<p>操作记录</p>
 		</div>
 		<div data-role="content">
 			<table data-role="table" id="table-collumn-toggle" data-mode="columntoggle" class="ui-responsive table-stroke" >
 				<thead>
 					<tr>
-						<th data-priority="1">姓名</th>
-						<th data-priority="3">车辆号码</th>
-						<th data-priority="3">车辆品牌</th>
-						<th data-priority="4">车辆颜色</th>
-						<th data-priority="5">到期时间</th>
-						<th data-priority="6">信息修改</th>
+						<th data-priority="1">编号</th>
+						<th data-priority="4">操作类型</th>
+						<th data-priority="2">操作内容</th>
+						<th data-priority="3">操作时间</th>
+						<th data-priority="5">管理员</th>
 					</tr>
 				</thead>
 				<tbody>
-					<s:iterator value="list_employee">
+					<s:iterator value="list_log">
 					<tr>
-						<td><s:property value="emp_name" /></td>
-						<td><s:property value="car_num" /></td>
-						<td><s:property value="car_brand_name" /></td>
-						<td><s:property value="car_color_name" /></td>
-						<td><s:property value="expire_date" /></td>
-						<td><a onclick='editPage(<s:property value="employee_id" />)'>修改</a></td>
+						<td><s:property value="sys_log_id" /></td>
+						<td><s:property value="actionName" /></td>
+						<td><s:property value="otherInfo" /></td>
+						<td><s:property value="actionDate" /></td>
+						<td><s:property value="manager" /></td>
 					</tr>
 					</s:iterator>
 				</tbody>
 			</table>
 			<script type="text/javascript">
-				//用户注销
-				function editPage(employee_id){
-					var data={'id':employee_id};
-					
-					$.mobile.changePage('/ParkCharge/Employee_editPage',{
-						type:'post',
-						data:data,
-					}); 
-				}
-				
 				//返回到主页
 				function goHome(){
 					$.mobile.changePage('/ParkCharge/mainFramePage'); 
