@@ -1,8 +1,7 @@
 package com.parkcharge.sys.service;
 
 import org.springframework.stereotype.Service;
-
-import com.mysql.jdbc.log.Log;
+import com.parkcharge.sys.entity.Log;
 import com.persistent.impl.Hibernate3CRUDImpl;
 
 /**

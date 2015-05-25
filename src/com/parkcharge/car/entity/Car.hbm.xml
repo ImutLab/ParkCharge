@@ -35,7 +35,7 @@
 			</column>
 		</many-to-one>
 
-		<many-to-one name="employee" class="Employee">
+		<many-to-one name="employee" class="Employee" lazy="false">
 			<column name="employee_id">
 				<comment>人员id</comment>
 			</column>

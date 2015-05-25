@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="loginareaAOP" class="com.sjbsj.sys.aop.LoginareaAOP">
+		<property name="logoperatorService" ref="logoperatorService" />
+	</bean>
+
+	<aop:config>
+		<aop:aspect id="loginareaAOP" ref="loginareaAOP">
+			<!-- 记录系统登录日志 -->
+			<aop:pointcut
+				expression="execution(* com.sjbsj.sys.service.LoginareaServiceImpl.loginCheck(com.sjbsj.sys.entity.Login_area)) and args(login_area)"
+				id="cut_loginarea_loginCheck" />
+			<aop:after-returning method="logLoginCheck"
+				pointcut-ref="cut_loginarea_loginCheck" returning="returnValue" />
+
+			<!-- 记录用户修改密码 -->
+			<aop:pointcut
+				expression="execution(* com.sjbsj.sys.service.LoginareaServiceImpl.editPass(String,String,String)) and args(login_area_code,oldPass,newPass)"
+				id="cut_loginarea_editPass" />
+			<aop:after-returning method="logEditPass"
+				returning="returnValue" pointcut-ref="cut_loginarea_editPass" />
+		</aop:aspect>
+	</aop:config>
+</beans>

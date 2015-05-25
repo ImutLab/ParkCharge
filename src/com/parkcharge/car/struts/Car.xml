@@ -19,7 +19,7 @@
 		</action>
 		<!-- 车辆注销 -->
 		<action name="Car_destoryCar" class="com.parkcharge.car.action.CarAction" method="destoryCar">
-			<result name="success" type="redirectAction">../CarCharge/expireListPage</result>
+			<result name="success" type="redirectAction">CarCharge_expireListPage</result>
 		</action>
 		
 		<!-- 数据处理部分 -->

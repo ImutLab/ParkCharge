@@ -22,10 +22,13 @@ public class AuthorInterceptor implements Interceptor {
 		
 		String actionName=invocation.getInvocationContext().getName();
 		System.out.println("actionName:"+actionName);
+		
+		//登录操作（放行）
 		if(actionName.equals("login")){
 			return invocation.invoke();
 		}
-		if(actionName.equals("mainFramePage")){
+		//添加默认操作员（放行）
+		if(actionName.equals("Operator_addDefaultOperator")){
 			return invocation.invoke();
 		}
 		

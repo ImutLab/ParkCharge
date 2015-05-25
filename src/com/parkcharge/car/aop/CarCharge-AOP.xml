@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="carChargeAop" class="com.parkcharge.car.aop.CarChargeAop" />
+
+	<aop:config>
+		<aop:aspect id="carChargeAop" ref="carChargeAop">
+			<!-- 记录用户修改密码 -->
+			<aop:pointcut
+				expression="execution(* com.parkcharge.car.service.CarChargeServiceImpl.add(com.parkcharge.car.entity.CarCharge,com.parkcharge.car.entity.Car)) and args(carCharge,car)"
+				id="cut_add_carCharge" />
+			<aop:after method="logAddCarCharge" pointcut-ref="cut_add_carCharge" />
+		</aop:aspect>
+	</aop:config>
+</beans>
