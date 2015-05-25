@@ -17,6 +17,10 @@
 		<action name="jsonListPage" class="com.parkcharge.sys.action.OperatorAction" method="jsonListPage">
 			<result name="success">/jsp/Operator/jsonListPage.jsp</result>
 		</action>
+		<!-- 修改密码界面 -->
+		<action name="editPassPage" class="com.parkcharge.sys.action.OperatorAction" method="editPassPage">
+			<result name="success">/jsp/Operator/editPassPage.jsp</result>
+		</action>
 		
 		<!-- 数据处理部分 -->
 		<action name="add" class="com.parkcharge.sys.action.OperatorAction" method="add">
@@ -29,8 +33,20 @@
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
 		
+		<!-- 添加默认操作员 -->
+		<action name="addDefaultOperator" class="com.parkcharge.sys.action.OperatorAction" method="addDefaultOperator">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
+		
+		
 		<!-- Json数据部分 -->
 		<action name="getJsonList" class="com.parkcharge.sys.action.OperatorAction" method="getJsonList">
+			<result type="json">
+				<param name="root">jsonobj</param>
+			</result>
+		</action>
+		<!-- 修改密码 -->
+		<action name="editPass" class="com.parkcharge.sys.action.OperatorAction" method="editPass">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>

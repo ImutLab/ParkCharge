@@ -5,7 +5,7 @@
 	id="WebApp_ID" version="3.0">
 	<display-name>ParkCharge</display-name>
 	<welcome-file-list>
-		<welcome-file>mainframe.jsp</welcome-file>
+		<welcome-file>mobile.jsp</welcome-file>
 	</welcome-file-list>
 	<filter>
 		<filter-name>struts2</filter-name>

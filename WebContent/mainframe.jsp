@@ -13,7 +13,7 @@
 <body>
 	<div data-role="page" id="sj_select">
 		<div data-role="header" align="center">
-			<p>主页</p>
+			<p><s:property value="#application.projectName" /></p>
 		</div>
 		<div data-role="content">
 			<div data-role="collapsible" data-inset="true">
@@ -31,6 +31,12 @@
 					<li><a href="/ParkCharge/CarCharge/addPage">用户缴费</a></li>
 					<li><a href="/ParkCharge/CarCharge/jsonListPage">缴费记录</a></li>
 					<li><a href="/ParkCharge/CarCharge/expireListPage">欠费查询</a></li>
+				</ul>
+			</div>
+			<div data-role="collapsible" data-inset="true">
+				<h2>系统管理</h2>
+				<ul data-role="listview" >
+					<li><a href="/ParkCharge/Operator/editPassPage">修改密码</a></li>
 				</ul>
 			</div>
 		</div>

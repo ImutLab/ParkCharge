@@ -19,6 +19,7 @@
 				<value>com/parkcharge/car/entity/CarColor.hbm.xml</value>
 				<value>com/parkcharge/car/entity/CarCharge.hbm.xml</value>
 				<value>com/parkcharge/car/entity/Employee.hbm.xml</value>
+				<value>com/parkcharge/sys/entity/Operator.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

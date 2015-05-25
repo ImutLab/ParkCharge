@@ -20,4 +20,19 @@ public interface OperatorService extends HibernateCRUD<Operator> {
 	 */
 	public Operator login(String uname, String upass);
 
+	/**
+	 * 修改密码
+	 * 
+	 * @param operator 操作员
+	 * @param oldPass 旧密码
+	 * @param newPass 新密码
+	 * @return 修改成功返回true，修改失败返回false
+	 */
+	public boolean editPass(Operator operator, String oldPass, String newPass);
+
+	/**
+	 * 添加默认操作员
+	 */
+	public void addDefaultOperator(String uname);
+
 }

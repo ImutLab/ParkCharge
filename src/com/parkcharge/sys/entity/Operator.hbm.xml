@@ -8,7 +8,7 @@
 		</id>
 
 		<property name="name">
-			<column name="name" length="50" not-null="true">
+			<column name="name" length="50" not-null="true" unique="true">
 				<comment>用户名</comment>
 			</column>
 		</property>
