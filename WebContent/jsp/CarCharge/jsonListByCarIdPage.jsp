@@ -11,7 +11,7 @@
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	<div data-role="page" id="">
+	<div data-role="page">
 		<div data-role="header" align="center">
 			<p>缴费记录查询</p>
 		</div>

@@ -11,12 +11,12 @@
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	<div data-role="page" id="">
+	<div data-role="page">
 		<div data-role="header" align="center">
 			<p>修改密码</p>
 		</div>
 		<div data-role="content">
-		<form id="form_Employee_add">
+		<form data-ajax="false">
 			<div class="ui-field-contain">
 				<label for="oldPass">原密码</label>
 				<input type="password" name="oldPass" id="oldPass" data-clear-btn="true" value="" placeholder="请输入原密码" />
@@ -57,7 +57,7 @@
 					
 					var data={'oldPass':oldPass,'upass':upass};
 					
-					$.ajax({url:'/ParkCharge/Operator/editPass',
+					$.ajax({url:'/ParkCharge/Operator_editPass',
 						type:'post',
 						data:data,
 						contentType:"application/x-www-form-urlencoded; charset=UTF-8",

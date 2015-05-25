@@ -11,7 +11,7 @@
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	<div data-role="page" id="">
+	<div data-role="page">
 		<div data-role="header" align="center">
 			<p>用户管理</p>
 		</div>
@@ -47,7 +47,7 @@
 				function editPage(employee_id){
 					var data={'id':employee_id};
 					
-					$.mobile.changePage('/ParkCharge/Employee/editPage',{
+					$.mobile.changePage('/ParkCharge/Employee_editPage',{
 						type:'post',
 						data:data,
 					}); 

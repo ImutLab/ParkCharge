@@ -4,55 +4,55 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-
     <constant name="struts.devMode" value="true" />
-    <package name="CarColor" namespace="/CarColor" extends="struts-global">
+    <package name="CarColor" namespace="/" extends="struts-global">
+		
 		<!-- 页面显示部分 -->
-		<action name="addPage" class="com.parkcharge.car.action.CarColorAction" method="addPage">
+		<action name="CarColor_addPage" class="com.parkcharge.car.action.CarColorAction" method="addPage">
 			<result name="success">/jsp/CarColor/addPage.jsp</result>
 		</action>
-		<action name="editPage" class="com.parkcharge.car.action.CarColorAction" method="editPage">
+		<action name="CarColor_editPage" class="com.parkcharge.car.action.CarColorAction" method="editPage">
 			<result name="success">/jsp/CarColor/editPage.jsp</result>
 		</action>
-		<action name="jsonListPage" class="com.parkcharge.car.action.CarColorAction" method="jsonListPage">
+		<action name="CarColor_jsonListPage" class="com.parkcharge.car.action.CarColorAction" method="jsonListPage">
 			<result name="success">/jsp/CarColor/jsonListPage.jsp</result>
 		</action>
 		
 		<!-- 数据处理部分 -->
-<!-- 		<action name="add" class="com.parkcharge.car.action.CarColorAction" method="add">
+<!-- 		<action name="CarColor_add" class="com.parkcharge.car.action.CarColorAction" method="add">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
-		<action name="del" class="com.parkcharge.car.action.CarColorAction" method="del">
+		<action name="CarColor_del" class="com.parkcharge.car.action.CarColorAction" method="del">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
-		<action name="edit" class="com.parkcharge.car.action.CarColorAction" method="edit">
+		<action name="CarColor_edit" class="com.parkcharge.car.action.CarColorAction" method="edit">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action> -->
 		<!-- 添加默认的车辆颜色 -->
-		<action name="addDefaultCarColor" class="com.parkcharge.car.action.CarColorAction" method="addDefaultCarColor">
+		<action name="CarColor_addDefaultCarColor" class="com.parkcharge.car.action.CarColorAction" method="addDefaultCarColor">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
 		
 		<!-- Json数据部分 -->
-		<action name="getJsonList" class="com.parkcharge.car.action.CarColorAction" method="getJsonList">
+		<action name="CarColor_getJsonList" class="com.parkcharge.car.action.CarColorAction" method="getJsonList">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>
 		</action>
 		<!-- Json数据部分 -->
-		<action name="add" class="com.parkcharge.car.action.CarColorAction" method="add">
+		<action name="CarColor_add" class="com.parkcharge.car.action.CarColorAction" method="add">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>
 		</action>
 		<!-- Json数据部分 -->
-		<action name="edit" class="com.parkcharge.car.action.CarColorAction" method="edit">
+		<action name="CarColor_edit" class="com.parkcharge.car.action.CarColorAction" method="edit">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>
 		</action>
 		<!-- Json数据部分 -->
-		<action name="del" class="com.parkcharge.car.action.CarColorAction" method="del">
+		<action name="CarColor_del" class="com.parkcharge.car.action.CarColorAction" method="del">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>

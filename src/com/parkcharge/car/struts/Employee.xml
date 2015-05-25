@@ -4,60 +4,43 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-
 	<constant name="struts.devMode" value="true" />
-
-	<package name="Employee" namespace="/Employee" extends="struts-global">
+	<package name="Employee" namespace="/" extends="struts-global">
 		<!-- 页面显示部分 -->
-		<action name="addPage" class="com.parkcharge.car.action.EmployeeAction"
+		<action name="Employee_addPage" class="com.parkcharge.car.action.EmployeeAction"
 			method="addPage">
 			<result name="success">/jsp/Employee/addPage.jsp</result>
 		</action>
-		<action name="editPage" class="com.parkcharge.car.action.EmployeeAction"
+		<action name="Employee_editPage" class="com.parkcharge.car.action.EmployeeAction"
 			method="editPage">
 			<result name="success">/jsp/Employee/editPage.jsp</result>
 		</action>
-		<action name="jsonListPage" class="com.parkcharge.car.action.EmployeeAction"
+		<action name="Employee_jsonListPage" class="com.parkcharge.car.action.EmployeeAction"
 			method="jsonListPage">
 			<result name="success">/jsp/Employee/jsonListPage.jsp</result>
 		</action>
 
 
-		<!-- 数据处理部分 -->
-		<!-- <action name="add" class="com.parkcharge.car.action.EmployeeAction"
-			method="add">
-			<result name="success" type="redirectAction">jsonListPage</result>
-		</action> -->
-		<action name="del" class="com.parkcharge.car.action.EmployeeAction"
-			method="del">
-			<result name="success" type="redirectAction">jsonListPage</result>
-		</action>
-		<!-- <action name="edit" class="com.parkcharge.car.action.EmployeeAction"
-			method="edit">
-			<result name="success" type="redirectAction">jsonListPage</result>
-		</action> -->
-
 		<!-- Json数据部分 -->
-		<action name="getJsonList" class="com.parkcharge.car.action.EmployeeAction"
-			method="getJsonList">
+		<action name="Employee_getJsonList" class="com.parkcharge.car.action.EmployeeAction" method="getJsonList">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>
 		</action>
 		<!-- 根据人员id来获取相应的人员Json信息 -->
-		<action name="getJsonEmployeeCarByEmpId" class="com.parkcharge.car.action.EmployeeAction" method="getJsonEmployeeCarByEmpId">
+		<action name="Employee_getJsonEmployeeCarByEmpId" class="com.parkcharge.car.action.EmployeeAction" method="getJsonEmployeeCarByEmpId">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>
 		</action>
 		<!-- 添加人员信息 -->
-		<action name="add" class="com.parkcharge.car.action.EmployeeAction" method="add">
+		<action name="Employee_add" class="com.parkcharge.car.action.EmployeeAction" method="add">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>
 		</action>
 		<!-- 修改人员信息 -->
-		<action name="edit" class="com.parkcharge.car.action.EmployeeAction" method="edit">
+		<action name="Employee_edit" class="com.parkcharge.car.action.EmployeeAction" method="edit">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>

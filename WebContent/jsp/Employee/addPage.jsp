@@ -11,12 +11,12 @@
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	<div data-role="page" id="">
+	<div data-role="page">
 		<div data-role="header" align="center">
 			<p>新户登记</p>
 		</div>
 		<div data-role="content">
-		<form id="form_Employee_add" action="/ParkCharge/Employee/add" method="POST" data-ajax="false">
+		<form data-ajax="false">
 			<div class="ui-field-contain">
 				<label for="employee_name">姓名</label>
 				<input type="text" name="employee.name" id="employee_name" data-clear-btn="true" value="" placeholder="请输入姓名" />
@@ -75,28 +75,6 @@
 			<input type="button" class="ui-btn ui-corner-all"  onclick="regInfo()" value="登记" />
 		</form>
 		<script type="text/javascript">
-				/* $(function(){
-					//初始化车辆颜色
-					$.getJSON('/ParkCharge/CarColor/getJsonList',null,function(json){
-						var car_car_color_id=$('#car_car_color_id');
-						var rows=json.rows;
-						$(rows).each(function(i){
-							var x=rows[i];
-							car_car_color_id.append("<option value='"+x.car_color_id+"'>"+x.name+"</option>");
-						});
-					});
-					
-					//初始化车辆品牌
-					$.getJSON('/ParkCharge/CarBrand/getJsonList',null,function(json){
-						var car_car_brand_id=$('#car_car_brand_id');
-						var rows=json.rows;
-						$(rows).each(function(i){
-							var x=rows[i];
-							car_car_brand_id.append("<option value='"+x.car_brand_id+"'>"+x.name+"</option>");
-						});
-					});
-				});
-				 */
 				//登记信息
 				function regInfo(){
 					var employee_name=$('#employee_name').val();
@@ -137,7 +115,7 @@
 							'carCharge.charge_date':carCharge_charge_date
 							};
 					
-					$.ajax({url:'/ParkCharge/Employee/add',
+					$.ajax({url:'/ParkCharge/Employee_add',
 						type:'post',
 						data:data,
 						contentType:"application/x-www-form-urlencoded; charset=UTF-8",

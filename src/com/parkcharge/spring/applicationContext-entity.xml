@@ -14,12 +14,16 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="mappingResources">
 			<list>
+				<!-- 车辆管理模块 -->
 				<value>com/parkcharge/car/entity/Car.hbm.xml</value>
 				<value>com/parkcharge/car/entity/CarBrand.hbm.xml</value>
 				<value>com/parkcharge/car/entity/CarColor.hbm.xml</value>
 				<value>com/parkcharge/car/entity/CarCharge.hbm.xml</value>
 				<value>com/parkcharge/car/entity/Employee.hbm.xml</value>
+				
+				<!-- 系统管理模块 -->
 				<value>com/parkcharge/sys/entity/Operator.hbm.xml</value>
+				<value>com/parkcharge/sys/entity/Log.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

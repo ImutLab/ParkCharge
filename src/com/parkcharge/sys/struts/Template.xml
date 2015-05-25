@@ -6,31 +6,32 @@
 <struts>
 
     <constant name="struts.devMode" value="true" />
-    <package name="Template" namespace="/Template" extends="struts-global">
+    <package name="Template" namespace="/" extends="struts-global">
+		
 		<!-- 页面显示部分 -->
-		<action name="addPage" class="com.parkcharge.sys.action.TemplateAction" method="addPage">
+		<action name="Template_addPage" class="com.parkcharge.sys.action.TemplateAction" method="addPage">
 			<result name="success">/jsp/Template/addPage.jsp</result>
 		</action>
-		<action name="editPage" class="com.parkcharge.sys.action.TemplateAction" method="editPage">
+		<action name="Template_editPage" class="com.parkcharge.sys.action.TemplateAction" method="editPage">
 			<result name="success">/jsp/Template/editPage.jsp</result>
 		</action>
-		<action name="jsonListPage" class="com.parkcharge.sys.action.TemplateAction" method="jsonListPage">
+		<action name="Template_jsonListPage" class="com.parkcharge.sys.action.TemplateAction" method="jsonListPage">
 			<result name="success">/jsp/Template/jsonListPage.jsp</result>
 		</action>
 		
 		<!-- 数据处理部分 -->
-		<action name="add" class="com.parkcharge.sys.action.TemplateAction" method="add">
+		<action name="Template_add" class="com.parkcharge.sys.action.TemplateAction" method="add">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
-		<action name="del" class="com.parkcharge.sys.action.TemplateAction" method="del">
+		<action name="Template_del" class="com.parkcharge.sys.action.TemplateAction" method="del">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
-		<action name="edit" class="com.parkcharge.sys.action.TemplateAction" method="edit">
+		<action name="Template_edit" class="com.parkcharge.sys.action.TemplateAction" method="edit">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
 		
 		<!-- Json数据部分 -->
-		<action name="getJsonList" class="com.parkcharge.sys.action.TemplateAction" method="getJsonList">
+		<action name="Template_getJsonList" class="com.parkcharge.sys.action.TemplateAction" method="getJsonList">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>

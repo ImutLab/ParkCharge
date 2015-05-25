@@ -11,12 +11,12 @@
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	<div data-role="page" id="">
+	<div data-role="page">
 		<div data-role="header" align="center">
 			<p>用户修改</p>
 		</div>
 		<div data-role="content">
-		<form id="form_Employee_add" action="/ParkCharge/Employee/edit" method="POST" data-ajax="false">
+		<form data-ajax="false">
 			<input type="hidden" id="hidden_employee_id" value='<s:property value="employee.id" />' />
 			<input type="hidden" id="hidden_car_id" value='<s:property value="car.id" />' />
 			<input type="hidden" id="hidden_car_brand_id" value='<s:property value="carBrand.id" />' />
@@ -99,7 +99,7 @@
 							'car.car_type':$('#car_car_type').val(),
 							};
 					
-					$.ajax({url:'/ParkCharge/Employee/edit',
+					$.ajax({url:'/ParkCharge/Employee_edit',
 						type:'post',
 						data:data,
 						contentType:"application/x-www-form-urlencoded; charset=UTF-8",
@@ -112,7 +112,6 @@
 							}
 						},
 						});
-					
 				}
 				
 				

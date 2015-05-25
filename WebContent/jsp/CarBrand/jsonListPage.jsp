@@ -11,7 +11,7 @@
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	<div data-role="page" id="">
+	<div data-role="page">
 		<div data-role="header" align="center">
 			<p>车辆品牌管理</p>
 		</div>
@@ -41,7 +41,7 @@
 				//修改车辆品牌
 				function editPage(car_brand_id){
 					var data={'id':car_brand_id};
-					$.mobile.changePage('/ParkCharge/CarBrand/editPage',{
+					$.mobile.changePage('/ParkCharge/CarBrand_editPage',{
 						type:'post',
 						data:data,
 					}); 
@@ -52,7 +52,7 @@
 					var data={'id':car_brand_id};
 					var isdel=confirm("是否要删除该车辆品牌?");
 					if(isdel==true){
-						$.getJSON('/ParkCharge/CarBrand/del',data,function(json){
+						$.getJSON('/ParkCharge/CarBrand_del',data,function(json){
 							if(json.data==true){
 								alert("删除车辆品牌成功...");
 								$.mobile.changePage('/ParkCharge/mainFramePage');
@@ -61,14 +61,11 @@
 							}
 						});
 					}
-					
-					
-					
 				}
 				
 				//添加车辆品牌页面
 				function addCarBrandPage(){
-					$.mobile.changePage('/ParkCharge/CarBrand/addPage'); 
+					$.mobile.changePage('/ParkCharge/CarBrand_addPage'); 
 				}
 				
 				//返回到主页

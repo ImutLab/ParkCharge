@@ -6,37 +6,37 @@
 <struts>
 
     <constant name="struts.devMode" value="true" />
-    <package name="Car" namespace="/Car" extends="struts-global">
+    <package name="Car" namespace="/" extends="struts-global">
 		<!-- 页面显示部分 -->
-		<action name="addPage" class="com.parkcharge.car.action.CarAction" method="addPage">
+		<action name="Car_addPage" class="com.parkcharge.car.action.CarAction" method="addPage">
 			<result name="success">/jsp/Car/addPage.jsp</result>
 		</action>
-		<action name="editPage" class="com.parkcharge.car.action.CarAction" method="editPage">
+		<action name="Car_editPage" class="com.parkcharge.car.action.CarAction" method="editPage">
 			<result name="success">/jsp/Car/editPage.jsp</result>
 		</action>
-		<action name="jsonListPage" class="com.parkcharge.car.action.CarAction" method="jsonListPage">
+		<action name="Car_jsonListPage" class="com.parkcharge.car.action.CarAction" method="jsonListPage">
 			<result name="success">/jsp/Car/jsonListPage.jsp</result>
 		</action>
 		<!-- 车辆注销 -->
-		<action name="destoryCar" class="com.parkcharge.car.action.CarAction" method="destoryCar">
+		<action name="Car_destoryCar" class="com.parkcharge.car.action.CarAction" method="destoryCar">
 			<result name="success" type="redirectAction">../CarCharge/expireListPage</result>
 		</action>
 		
 		<!-- 数据处理部分 -->
-		<action name="add" class="com.parkcharge.car.action.CarAction" method="add">
+		<action name="Car_add" class="com.parkcharge.car.action.CarAction" method="add">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
-		<action name="del" class="com.parkcharge.car.action.CarAction" method="del">
+		<action name="Car_del" class="com.parkcharge.car.action.CarAction" method="del">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
-		<action name="edit" class="com.parkcharge.car.action.CarAction" method="edit">
+		<action name="Car_edit" class="com.parkcharge.car.action.CarAction" method="edit">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
 		
 		
 		
 		<!-- Json数据部分 -->
-		<action name="getJsonList" class="com.parkcharge.car.action.CarAction" method="getJsonList">
+		<action name="Car_getJsonList" class="com.parkcharge.car.action.CarAction" method="getJsonList">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>

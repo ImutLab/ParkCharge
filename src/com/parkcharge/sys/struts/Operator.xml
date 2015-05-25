@@ -4,49 +4,48 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-
     <constant name="struts.devMode" value="true" />
-    <package name="Operator" namespace="/Operator" extends="struts-global">
+    <package name="Operator" namespace="/" extends="struts-global">
 		<!-- 页面显示部分 -->
-		<action name="addPage" class="com.parkcharge.sys.action.OperatorAction" method="addPage">
+		<action name="Operator_addPage" class="com.parkcharge.sys.action.OperatorAction" method="addPage">
 			<result name="success">/jsp/Operator/addPage.jsp</result>
 		</action>
-		<action name="editPage" class="com.parkcharge.sys.action.OperatorAction" method="editPage">
+		<action name="Operator_editPage" class="com.parkcharge.sys.action.OperatorAction" method="editPage">
 			<result name="success">/jsp/Operator/editPage.jsp</result>
 		</action>
-		<action name="jsonListPage" class="com.parkcharge.sys.action.OperatorAction" method="jsonListPage">
+		<action name="Operator_jsonListPage" class="com.parkcharge.sys.action.OperatorAction" method="jsonListPage">
 			<result name="success">/jsp/Operator/jsonListPage.jsp</result>
 		</action>
 		<!-- 修改密码界面 -->
-		<action name="editPassPage" class="com.parkcharge.sys.action.OperatorAction" method="editPassPage">
+		<action name="Operator_editPassPage" class="com.parkcharge.sys.action.OperatorAction" method="editPassPage">
 			<result name="success">/jsp/Operator/editPassPage.jsp</result>
 		</action>
 		
 		<!-- 数据处理部分 -->
-		<action name="add" class="com.parkcharge.sys.action.OperatorAction" method="add">
+		<action name="Operator_add" class="com.parkcharge.sys.action.OperatorAction" method="add">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
-		<action name="del" class="com.parkcharge.sys.action.OperatorAction" method="del">
+		<action name="Operator_del" class="com.parkcharge.sys.action.OperatorAction" method="del">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
-		<action name="edit" class="com.parkcharge.sys.action.OperatorAction" method="edit">
+		<action name="Operator_edit" class="com.parkcharge.sys.action.OperatorAction" method="edit">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
 		
 		<!-- 添加默认操作员 -->
-		<action name="addDefaultOperator" class="com.parkcharge.sys.action.OperatorAction" method="addDefaultOperator">
+		<action name="Operator_addDefaultOperator" class="com.parkcharge.sys.action.OperatorAction" method="addDefaultOperator">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
 		
 		
 		<!-- Json数据部分 -->
-		<action name="getJsonList" class="com.parkcharge.sys.action.OperatorAction" method="getJsonList">
+		<action name="Operator_getJsonList" class="com.parkcharge.sys.action.OperatorAction" method="getJsonList">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>
 		</action>
 		<!-- 修改密码 -->
-		<action name="editPass" class="com.parkcharge.sys.action.OperatorAction" method="editPass">
+		<action name="Operator_editPass" class="com.parkcharge.sys.action.OperatorAction" method="editPass">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>

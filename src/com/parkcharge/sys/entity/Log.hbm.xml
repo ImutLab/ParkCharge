@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.parkcharge.sys.entity">
+	<class name="Log" table="sys_log">
+		<comment>操作日志表</comment>
+		<id name="id" column="sys_log_id">
+			<generator class="increment" />
+		</id>
+
+		<property name="manager">
+			<column name="manager" length="50" not-null="true">
+				<comment>管理员</comment>
+			</column>
+		</property>
+		<property name="actionName">
+			<column name="actionName" length="200" not-null="true">
+				<comment>动作名称</comment>
+			</column>
+		</property>
+		<property name="actionDate">
+			<column name="actionDate" length="50" not-null="true">
+				<comment>操作日期</comment>
+			</column>
+		</property>
+		<property name="otherInfo">
+			<column name="otherInfo" length="200">
+				<comment>其他信息</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

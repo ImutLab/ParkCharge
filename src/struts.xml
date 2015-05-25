@@ -2,9 +2,20 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<constant name="struts.devMode" value="true" />
-
+	<package name="mydefault-package" namespace="/" extends="struts-default">
+		<interceptors>
+			<!-- 检测用户的session是否有效 -->
+			<interceptor name="authorInterceptor"
+				class="com.parkcharge.sys.interceptor.AuthorInterceptor" />
+			<interceptor-stack name="mydefaultinterceptor">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="authorInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="mydefaultinterceptor" />
+	</package>
 	<!-- struts公共配置 -->
-	<package name="struts-global" namespace="/" extends="struts-default">
+	<package name="struts-global" namespace="/" extends="mydefault-package">
 		<result-types>
 			<result-type name="json" class="org.apache.struts2.json.JSONResult"></result-type>
 		</result-types>
@@ -12,15 +23,16 @@
 		<global-results>
 			<result name="login_mobile">/mobile.jsp</result>
 		</global-results>
-
+		
 		<action name="mainFramePage" class="com.parkcharge.car.action.EmployeeAction" method="mainFramePage">
 			<result name="success">/mainframe.jsp</result>
 		</action>
-		
+
 		<!-- 操作员登录 -->
 		<action name="login" class="com.parkcharge.sys.action.OperatorAction" method="login">
 			<result name="success">/mainframe.jsp</result>
 		</action>
+
 	</package>
 
 	<include file="com/parkcharge/car/struts/Car.xml" />

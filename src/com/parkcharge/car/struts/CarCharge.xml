@@ -4,53 +4,52 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-
     <constant name="struts.devMode" value="true" />
-    <package name="CarCharge" namespace="/CarCharge" extends="struts-global">
+    <package name="CarCharge" namespace="/" extends="struts-global">
 		<!-- 页面显示部分 -->
-		<action name="addPage" class="com.parkcharge.car.action.CarChargeAction" method="addPage">
+		<action name="CarCharge_addPage" class="com.parkcharge.car.action.CarChargeAction" method="addPage">
 			<result name="success">/jsp/CarCharge/addPage.jsp</result>
 		</action>
-		<action name="editPage" class="com.parkcharge.car.action.CarChargeAction" method="editPage">
+		<action name="CarCharge_editPage" class="com.parkcharge.car.action.CarChargeAction" method="editPage">
 			<result name="success">/jsp/CarCharge/editPage.jsp</result>
 		</action>
-		<action name="jsonListPage" class="com.parkcharge.car.action.CarChargeAction" method="jsonListPage">
+		<action name="CarCharge_jsonListPage" class="com.parkcharge.car.action.CarChargeAction" method="jsonListPage">
 			<result name="success">/jsp/CarCharge/jsonListPage.jsp</result>
 		</action>
-		<action name="jsonListByCarIdPage" class="com.parkcharge.car.action.CarChargeAction" method="jsonListByCarIdPage">
+		<action name="CarCharge_jsonListByCarIdPage" class="com.parkcharge.car.action.CarChargeAction" method="jsonListByCarIdPage">
 			<result name="success">/jsp/CarCharge/jsonListByCarIdPage.jsp</result>
 		</action>
-		<action name="expireListPage" class="com.parkcharge.car.action.CarChargeAction" method="expireListPage">
+		<action name="CarCharge_expireListPage" class="com.parkcharge.car.action.CarChargeAction" method="expireListPage">
 			<result name="success">/jsp/CarCharge/expireListPage.jsp</result>
 		</action>
 		
 		<!-- 数据处理部分 -->
-		<!-- <action name="add" class="com.parkcharge.car.action.CarChargeAction" method="add">
+		<!-- <action name="CarCharge_add" class="com.parkcharge.car.action.CarChargeAction" method="add">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action> -->
-		<action name="del" class="com.parkcharge.car.action.CarChargeAction" method="del">
+		<action name="CarCharge_del" class="com.parkcharge.car.action.CarChargeAction" method="del">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
-		<action name="edit" class="com.parkcharge.car.action.CarChargeAction" method="edit">
+		<action name="CarCharge_edit" class="com.parkcharge.car.action.CarChargeAction" method="edit">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
 		
 		
 		
 		<!-- Json数据部分 -->
-		<action name="getJsonList" class="com.parkcharge.car.action.CarChargeAction" method="getJsonList">
+		<action name="CarCharge_getJsonList" class="com.parkcharge.car.action.CarChargeAction" method="getJsonList">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>
 		</action>
 		<!-- 根据车辆id来查询缴费记录 -->
-		<action name="getJsonListByCarId" class="com.parkcharge.car.action.CarChargeAction" method="getJsonListByCarId">
+		<action name="CarCharge_getJsonListByCarId" class="com.parkcharge.car.action.CarChargeAction" method="getJsonListByCarId">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>
 		</action>
 		<!-- 添加缴费记录返回json-->
-		<action name="add" class="com.parkcharge.car.action.CarChargeAction" method="add">
+		<action name="CarCharge_add" class="com.parkcharge.car.action.CarChargeAction" method="add">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>

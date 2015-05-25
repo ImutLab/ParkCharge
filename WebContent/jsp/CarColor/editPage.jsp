@@ -11,12 +11,12 @@
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	<div data-role="page" id="">
+	<div data-role="page">
 		<div data-role="header" align="center">
 			<p>修改车辆颜色</p>
 		</div>
 		<div data-role="content">
-		<form id="form_Employee_add" >
+		<form data-ajax="false">
 			<input type="hidden" id="hidden_car_color_id" value='<s:property value="carColor.id" />' />
 			<div class="ui-field-contain">
 				<label for="car_color_name">车辆颜色</label>
@@ -37,7 +37,7 @@
 					
 					var data={'carColor.id':hidden_car_color_id,'carColor.name':car_color_name};
 					
-					$.ajax({url:'/ParkCharge/CarColor/edit',
+					$.ajax({url:'/ParkCharge/CarColor_edit',
 						type:'post',
 						data:data,
 						contentType:"application/x-www-form-urlencoded; charset=UTF-8",

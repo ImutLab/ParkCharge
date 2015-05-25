@@ -55,26 +55,6 @@
 			
 			$('#frmLogin').submit();
 		}
-		
-		/**
-		 * 生成随机字符串
-		 * @param dstObj
-		 * @param charsLength
-		 * @param chars
-		 */
-		function randomString(charsLength) { 
-		    var length=charsLength;
-		    var chars="abcdefghijkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789";
-		    var randomChars="";
-		
-		    for(var x=0; x<length; x++) {
-		        var i=Math.floor(Math.random()*chars.length);
-		        randomChars+=chars.charAt(i);
-		    }
-		    
-		    return randomChars;
-		}
-		
 	</script>
 </body>
 </html>

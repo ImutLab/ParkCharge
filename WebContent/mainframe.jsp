@@ -11,7 +11,8 @@
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	<div data-role="page" id="sj_select">
+
+	<div data-role="page">
 		<div data-role="header" align="center">
 			<p><s:property value="#application.projectName" /></p>
 		</div>
@@ -19,24 +20,24 @@
 			<div data-role="collapsible" data-inset="true">
 				<h2>信息登记</h2>
 				<ul data-role="listview" >
-					<li><a href="/ParkCharge/Employee/addPage">新户登记</a></li>
-					<li><a href="/ParkCharge/Employee/jsonListPage">人员管理</a></li>
-					<li><a href="/ParkCharge/CarBrand/jsonListPage">车辆品牌</a></li>
-					<li><a href="/ParkCharge/CarColor/jsonListPage">车辆颜色</a></li>
+					<li><a href="/ParkCharge/Employee_addPage">新户登记</a></li>
+					<li><a href="/ParkCharge/Employee_jsonListPage">人员管理</a></li>
+					<li><a href="/ParkCharge/CarBrand_jsonListPage">车辆品牌</a></li>
+					<li><a href="/ParkCharge/CarColor_jsonListPage">车辆颜色</a></li>
 				</ul>
 			</div>
 			<div data-role="collapsible" data-inset="true">
 				<h2>缴费管理</h2>
 				<ul data-role="listview" >
-					<li><a href="/ParkCharge/CarCharge/addPage">用户缴费</a></li>
-					<li><a href="/ParkCharge/CarCharge/jsonListPage">缴费记录</a></li>
-					<li><a href="/ParkCharge/CarCharge/expireListPage">欠费查询</a></li>
+					<li><a href="/ParkCharge/CarCharge_addPage">用户缴费</a></li>
+					<li><a href="/ParkCharge/CarCharge_jsonListPage">缴费记录</a></li>
+					<li><a href="/ParkCharge/CarCharge_expireListPage">欠费查询</a></li>
 				</ul>
 			</div>
 			<div data-role="collapsible" data-inset="true">
 				<h2>系统管理</h2>
 				<ul data-role="listview" >
-					<li><a href="/ParkCharge/Operator/editPassPage">修改密码</a></li>
+					<li><a href="/ParkCharge/Operator_editPassPage">修改密码</a></li>
 				</ul>
 			</div>
 		</div>
@@ -61,5 +62,6 @@
 			<p>已经是首页了，不能再返回了</p>
 		</div>
 	</div>
+	
 </body>
 </html>

@@ -11,7 +11,7 @@
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	<div data-role="page" id="">
+	<div data-role="page">
 		<div data-role="header" align="center">
 			<p>车辆颜色管理</p>
 		</div>
@@ -41,7 +41,7 @@
 				//修改车辆品牌
 				function editPage(car_color_id){
 					var data={'id':car_color_id};
-					$.mobile.changePage('/ParkCharge/CarColor/editPage',{
+					$.mobile.changePage('/ParkCharge/CarColor_editPage',{
 						type:'post',
 						data:data,
 					}); 
@@ -52,7 +52,7 @@
 					var data={'id':car_brand_id};
 					var isdel=confirm("是否要删除该车辆颜色?");
 					if(isdel==true){
-						$.getJSON('/ParkCharge/CarColor/del',data,function(json){
+						$.getJSON('/ParkCharge/CarColor_del',data,function(json){
 							if(json.data==true){
 								alert("删除车辆颜色成功...");
 								$.mobile.changePage('/ParkCharge/mainFramePage');
@@ -65,7 +65,7 @@
 				
 				//添加车辆品牌页面
 				function addCarColorPage(){
-					$.mobile.changePage('/ParkCharge/CarColor/addPage'); 
+					$.mobile.changePage('/ParkCharge/CarColor_addPage'); 
 				}
 				
 				//返回到主页

@@ -11,12 +11,12 @@
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	<div data-role="page" id="">
+	<div data-role="page">
 		<div data-role="header" align="center">
 			<p>用户缴费</p>
 		</div>
 		<div data-role="content">
-		<form id="form_Employee_add">
+		<form data-ajax="false">
 			<input type="hidden" id="car_car_id" name="car.car_id" value="" />
 			<div class="ui-field-contain">
 				<label for="employee_id">姓名</label>
@@ -62,17 +62,6 @@
 		</form>
 		<script type="text/javascript">
 				$(function(){
-					//初始化人员选择
-/* 					$.getJSON('/ParkCharge/Employee/getJsonList',null,function(json){
-						var employee_id=$('#employee_id');
-						var rows=json.rows;
-						$(rows).each(function(i){
-							var x=rows[i];
-							employee_id.append("<option value='"+x.employee_id+"'>"+x.name+"</option>");
-						});
-					}); */
-					
-					
 					//绑定人员选择事件，当选择人员的时候，就向后台发送人员id获取人员json数据
 					$('#employee_id').change(function(){
 						getEmployeeInfo();
@@ -81,7 +70,7 @@
 					//获取用户的信息
 					function getEmployeeInfo(){
 						var employee_id=$('#employee_id').val();
-						$.getJSON('/ParkCharge/Employee/getJsonEmployeeCarByEmpId?id='+employee_id,null,function(json){
+						$.getJSON('/ParkCharge/Employee_getJsonEmployeeCarByEmpId?id='+employee_id,null,function(json){
 							var data=json.data;
 							$('#employee_id_card').val(data.id_card);
 							$('#employee_gender').val(data.gender_name);
@@ -93,7 +82,6 @@
 							$('#car_car_id').val(data.car_id);
 						});
 					}
-					
 					
 					//首次进入界面的时候，初始化第一个用户的信息
 					getEmployeeInfo();
@@ -119,29 +107,26 @@
 						return false;
 					}
 					
-					
 					var data={
 							'car.id':$('#car_car_id').val(),
 							'carCharge.money':carCharge_money,
 							'carCharge.charge_date':$('#carCharge_charge_date').val()
 							};
 					
-					$.ajax({url:'/ParkCharge/CarCharge/add',
+					$.ajax({url:'/ParkCharge/CarCharge_add',
 						type:'post',
 						data:data,
 						contentType:"application/x-www-form-urlencoded; charset=UTF-8",
 						success:function(json){
 							var isQueryCarCharge=confirm("缴费成功，是否查看该车主缴费记录?");
 							if(isQueryCarCharge==true){
-								$.mobile.changePage('/ParkCharge/CarCharge/jsonListByCarIdPage?car.id='+json.car_id);
+								$.mobile.changePage('/ParkCharge/CarCharge_jsonListByCarIdPage?car.id='+json.car_id);
 							}else{
 								$.mobile.changePage('/ParkCharge/mainFramePage');
 							}
 						},
 						});
-					
 				}
-				
 				
 				//返回到主页
 				function goHome(){

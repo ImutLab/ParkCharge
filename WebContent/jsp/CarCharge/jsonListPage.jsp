@@ -11,12 +11,12 @@
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	<div data-role="page" id="">
+	<div data-role="page">
 		<div data-role="header" align="center">
 			<p>缴费记录--用户选择</p>
 		</div>
 		<div data-role="content">
-		<form id="form_Employee_add">
+		<form data-ajax="false">
 			<input type="hidden" id="car_car_id" name="car.car_id" value="" />
 			<div class="ui-field-contain">
 				<label for="employee_id">姓名</label>
@@ -51,28 +51,15 @@
 		</form>
 		<script type="text/javascript">
 				$(function(){
-					//初始化人员选择
-/* 					$.getJSON('/ParkCharge/Employee/getJsonList',null,function(json){
-						var employee_id=$('#employee_id');
-						var rows=json.rows;
-						$(rows).each(function(i){
-							var x=rows[i];
-							employee_id.append("<option value='"+x.employee_id+"'>"+x.name+"</option>");
-						});
-					}); */
-					
-					
 					//绑定人员选择事件，当选择人员的时候，就向后台发送人员id获取人员json数据
 					$('#employee_id').change(function(){
 						getEmployeeInfo();
 					});
 					
-					
-					
 					//获取用户的信息
 					function getEmployeeInfo(){
 						var employee_id=$('#employee_id').val();
-						$.getJSON('/ParkCharge/Employee/getJsonEmployeeCarByEmpId?id='+employee_id,null,function(json){
+						$.getJSON('/ParkCharge/Employee_getJsonEmployeeCarByEmpId?id='+employee_id,null,function(json){
 							var data=json.data;
 							$('#employee_id_card').val(data.id_card);
 							$('#car_car_num').val(data.car_num);
@@ -93,7 +80,7 @@
 							'car.id':$('#car_car_id').val(),
 							};
 					
-					$.mobile.changePage('/ParkCharge/CarCharge/jsonListByCarIdPage',{
+					$.mobile.changePage('/ParkCharge/CarCharge_jsonListByCarIdPage',{
 						type:'post',
 						data:data,
 					});

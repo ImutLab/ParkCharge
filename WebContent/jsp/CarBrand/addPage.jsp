@@ -11,12 +11,12 @@
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	<div data-role="page" id="">
+	<div data-role="page">
 		<div data-role="header" align="center">
 			<p>新增车辆品牌</p>
 		</div>
 		<div data-role="content">
-		<form id="form_Employee_add" action="/ParkCharge/Employee/add" method="POST" data-ajax="false">
+		<form data-ajax="false">
 			<div class="ui-field-contain">
 				<label for="car_brand_name">车辆品牌</label>
 				<input type="text" name="car_brand_name" id="car_brand_name" data-clear-btn="true" value="" placeholder="请输入车辆品牌" />
@@ -34,7 +34,7 @@
 					
 					var data={'carBrand.name':car_brand_name};
 					
-					$.ajax({url:'/ParkCharge/CarBrand/add',
+					$.ajax({url:'/ParkCharge/CarBrand_add',
 						type:'post',
 						data:data,
 						contentType:"application/x-www-form-urlencoded; charset=UTF-8",
