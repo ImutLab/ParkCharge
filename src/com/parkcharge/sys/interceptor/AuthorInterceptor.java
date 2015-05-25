@@ -31,6 +31,10 @@ public class AuthorInterceptor implements Interceptor {
 		if(actionName.equals("Operator_addDefaultOperator")){
 			return invocation.invoke();
 		}
+		//查询日志（放行）
+		if(actionName.equals("Log_jsonListPage")){
+			return invocation.invoke();
+		}
 		
 		//如果没有检测到操作员信息，则跳转到登录界面
 		Operator operator = (Operator) invocation.getInvocationContext().getSession().get("operator");
