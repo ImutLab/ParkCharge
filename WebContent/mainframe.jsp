@@ -45,7 +45,7 @@
 		</div>
 		<div data-role="popup" id="aboutMainframe_mobile" class="ui-content">
 			<p>
-				<s:property value="#application.teamName" />
+				<s:property value="#application.projectName" />
 			</p>
 		</div>
 		<div data-role="popup" id="messageIsmainframe_mobile" class="ui-content">

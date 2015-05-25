@@ -65,7 +65,7 @@
 				</ul>
 			</div>
 			<div data-role="popup" id="aboutJsonListPage" class="ui-content">
-				<p><s:property value="#application.teamName" /></p>
+				<p><s:property value="#application.projectName" /></p>
 			</div>
 		</div>
 	</div>
