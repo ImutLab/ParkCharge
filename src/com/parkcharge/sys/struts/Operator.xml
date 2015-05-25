@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    <package name="Operator" namespace="/Operator" extends="struts-global">
+		<!-- 页面显示部分 -->
+		<action name="addPage" class="com.parkcharge.sys.action.OperatorAction" method="addPage">
+			<result name="success">/jsp/Operator/addPage.jsp</result>
+		</action>
+		<action name="editPage" class="com.parkcharge.sys.action.OperatorAction" method="editPage">
+			<result name="success">/jsp/Operator/editPage.jsp</result>
+		</action>
+		<action name="jsonListPage" class="com.parkcharge.sys.action.OperatorAction" method="jsonListPage">
+			<result name="success">/jsp/Operator/jsonListPage.jsp</result>
+		</action>
+		
+		<!-- 数据处理部分 -->
+		<action name="add" class="com.parkcharge.sys.action.OperatorAction" method="add">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
+		<action name="del" class="com.parkcharge.sys.action.OperatorAction" method="del">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
+		<action name="edit" class="com.parkcharge.sys.action.OperatorAction" method="edit">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
+		
+		<!-- Json数据部分 -->
+		<action name="getJsonList" class="com.parkcharge.sys.action.OperatorAction" method="getJsonList">
+			<result type="json">
+				<param name="root">jsonobj</param>
+			</result>
+		</action>
+		
+    </package>
+</struts>

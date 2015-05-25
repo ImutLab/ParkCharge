@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.parkcharge.sys.entity">
+	<class name="Operator" table="operator">
+		<comment>操作员</comment>
+		<id name="id" column="operator_id">
+			<generator class="increment" />
+		</id>
+
+		<property name="name">
+			<column name="name" length="50" not-null="true">
+				<comment>用户名</comment>
+			</column>
+		</property>
+		<property name="pass">
+			<column name="pass" length="50" not-null="true">
+				<comment>密码</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>
