@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    <package name="Setup" namespace="/" extends="struts-global">
+		
+		<!-- 页面显示部分 -->
+		<action name="Setup_addPage" class="com.parkcharge.sys.action.SetupAction" method="addPage">
+			<result name="success">/jsp/Setup/addPage.jsp</result>
+		</action>
+		<action name="Setup_editPage" class="com.parkcharge.sys.action.SetupAction" method="editPage">
+			<result name="success">/jsp/Setup/editPage.jsp</result>
+		</action>
+		<action name="Setup_jsonListPage" class="com.parkcharge.sys.action.SetupAction" method="jsonListPage">
+			<result name="success">/jsp/Setup/jsonListPage.jsp</result>
+		</action>
+		
+		<!-- 数据处理部分 -->
+		<action name="Setup_add" class="com.parkcharge.sys.action.SetupAction" method="add">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
+		<action name="Setup_del" class="com.parkcharge.sys.action.SetupAction" method="del">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
+		<action name="Setup_edit" class="com.parkcharge.sys.action.SetupAction" method="edit">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
+		<!-- 初始化安装 -->
+		<action name="install" class="com.parkcharge.sys.action.SetupAction" method="install">
+			<result name="success">installSuccess.jsp</result>
+		</action>
+		
+		<!-- Json数据部分 -->
+		<action name="Setup_getJsonList" class="com.parkcharge.sys.action.SetupAction" method="getJsonList">
+			<result type="json">
+				<param name="root">jsonobj</param>
+			</result>
+		</action>
+		
+    </package>
+</struts>

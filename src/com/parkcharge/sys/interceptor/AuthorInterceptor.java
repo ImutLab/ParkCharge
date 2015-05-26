@@ -23,6 +23,10 @@ public class AuthorInterceptor implements Interceptor {
 		String actionName=invocation.getInvocationContext().getName();
 		System.out.println("actionName:"+actionName);
 		
+		//初始化安装操作（放行）
+		if(actionName.equals("install")){
+			return invocation.invoke();
+		}
 		//登录操作（放行）
 		if(actionName.equals("login")){
 			return invocation.invoke();

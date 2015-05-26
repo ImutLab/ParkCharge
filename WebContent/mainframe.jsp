@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>主页</title>
+<title><s:property value="#application.projectName" /></title>
 <link rel="stylesheet" href="./js/jqueryMobile/jquery.mobile-1.4.5.min.css" />
 <script src="./js/jqueryMobile/jquery.min.js"></script>
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>

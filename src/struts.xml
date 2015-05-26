@@ -42,5 +42,6 @@
 	<include file="com/parkcharge/car/struts/Employee.xml" />
 	<include file="com/parkcharge/sys/struts/Operator.xml" />
 	<include file="com/parkcharge/sys/struts/Log.xml" />
+	<include file="com/parkcharge/sys/struts/Setup.xml" />
 
 </struts>
