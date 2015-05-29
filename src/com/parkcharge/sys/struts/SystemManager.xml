@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    <package name="SystemManager" namespace="/" extends="struts-global">
+		
+		<!-- 页面显示部分 -->
+		<action name="SystemManager_addPage" class="com.parkcharge.sys.action.SystemManagerAction" method="addPage">
+			<result name="success">/jsp/SystemManager/addPage.jsp</result>
+		</action>
+		<action name="SystemManager_editPage" class="com.parkcharge.sys.action.SystemManagerAction" method="editPage">
+			<result name="success">/jsp/SystemManager/editPage.jsp</result>
+		</action>
+		<action name="SystemManager_jsonListPage" class="com.parkcharge.sys.action.SystemManagerAction" method="jsonListPage">
+			<result name="success">/jsp/SystemManager/jsonListPage.jsp</result>
+		</action>
+		
+		<!-- 数据处理部分 -->
+		<action name="SystemManager_add" class="com.parkcharge.sys.action.SystemManagerAction" method="add">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
+		<action name="SystemManager_del" class="com.parkcharge.sys.action.SystemManagerAction" method="del">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
+		<action name="SystemManager_edit" class="com.parkcharge.sys.action.SystemManagerAction" method="edit">
+			<result name="success" type="redirectAction">jsonListPage</result>
+		</action>
+		
+		<!-- Json数据部分 -->
+		<action name="SystemManager_getJsonList" class="com.parkcharge.sys.action.SystemManagerAction" method="getJsonList">
+			<result type="json">
+				<param name="root">jsonobj</param>
+			</result>
+		</action>
+		<action name="SystemManager_backupDB" class="com.parkcharge.sys.action.SystemManagerAction" method="backupDB">
+			<result type="json">
+				<param name="root">jsonobj</param>
+			</result>
+		</action>
+		
+    </package>
+</struts>
