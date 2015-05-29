@@ -2,7 +2,6 @@ package com.parkcharge.sys.interceptor;
 
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
-import com.parkcharge.sys.entity.Operator;
 
 @SuppressWarnings("serial")
 public class AuthorInterceptor implements Interceptor {

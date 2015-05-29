@@ -84,11 +84,11 @@ public class SystemManagerAction extends BaseActionImpl implements BaseAction {
 		newFileName=newFileName.replace("\\", "/");
 		System.out.println(newFileName);
 		boolean isBackupSuccess = MySQLUtils.backupDB(dataSource.getUser(), dataSource.getPassword(), "parkcharge", newFileName);
+		Map<String, Object> map_json = new HashMap<String, Object>();
 		Log log = new Log();
 		log.setActionDate(DateUtils.formatDate(dt));
 		log.setActionName("数据备份");
 		log.setManager("admin");
-		Map<String, Object> map_json = new HashMap<String, Object>();
 
 		if (isBackupSuccess == true) {
 			map_json.put("data", "数据备份成功!文件名:" + newFileName);
