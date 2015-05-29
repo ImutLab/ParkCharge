@@ -80,7 +80,9 @@ public class SystemManagerAction extends BaseActionImpl implements BaseAction {
 		filePath = filePath.substring(0, filePath.length() - 2);
 		filePath = filePath.substring(0, filePath.replace("\\", "/").lastIndexOf("/"));
 		Date dt = new Date();
-		String newFileName = filePath + "/backup/ParkCharge/" + DateUtils.formatDateAsyyyymmdd(dt) + "_" + DateUtils.formatTimeAshhmiss(dt) + ".sql";
+		String newFileName = filePath + "/backup/ParkCharge/";
+		String sqlFileName=DateUtils.formatDateAsyyyymmdd(dt) + "_" + DateUtils.formatTimeAshhmiss(dt) + ".sql";
+		newFileName+=sqlFileName;
 		newFileName=newFileName.replace("\\", "/");
 		System.out.println(newFileName);
 		boolean isBackupSuccess = MySQLUtils.backupDB(dataSource.getUser(), dataSource.getPassword(), "parkcharge", newFileName);
@@ -91,8 +93,8 @@ public class SystemManagerAction extends BaseActionImpl implements BaseAction {
 		log.setManager("admin");
 
 		if (isBackupSuccess == true) {
-			map_json.put("data", "数据备份成功!文件名:" + newFileName);
-			log.setOtherInfo("备份文件:" + newFileName + "  ，备份时间:" + DateUtils.formatTimeAshhmiss(dt));
+			map_json.put("data", "数据备份成功!文件名:" + sqlFileName);
+			log.setOtherInfo("备份文件:" + sqlFileName + "  ，备份时间:" + DateUtils.formatTimeAshhmiss(dt));
 		} else {
 			map_json.put("data", "数据备份失败!");
 			log.setOtherInfo("备份数据失败!");
