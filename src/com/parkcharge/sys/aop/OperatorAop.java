@@ -29,7 +29,7 @@ public class OperatorAop {
 	 */
 	public void logEditPass(Operator operator, String oldPass, String newPass, boolean returnValue) {
 		Log log = new Log();
-		log.setManager(operator.getName());
+		log.setManager("admin");
 		log.setActionName("修改密码");
 		if (returnValue == true) {
 			log.setOtherInfo("修改成功!");
