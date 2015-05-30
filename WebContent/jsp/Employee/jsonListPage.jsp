@@ -26,8 +26,8 @@
 						<th data-priority="2">车辆号码</th>
 						<th data-priority="3">车辆品牌</th>
 						<th data-priority="4">车辆颜色</th>
-						<th data-priority="5">到期时间</th>
-						<th data-priority="6">信息修改</th>
+						<th data-priority="5">信息修改</th>
+						<th data-priority="6">到期时间</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -38,8 +38,8 @@
 						<td><s:property value="car_num" /></td>
 						<td><s:property value="car_brand_name" /></td>
 						<td><s:property value="car_color_name" /></td>
-						<td><s:property value="expire_date" /></td>
 						<td><a onclick='editPage(<s:property value="employee_id" />)'>修改</a></td>
+						<td><s:property value="expire_date" /></td>
 					</tr>
 					</s:iterator>
 				</tbody>

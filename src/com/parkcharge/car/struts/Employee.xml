@@ -20,7 +20,9 @@
 			<result name="success">/jsp/Employee/jsonListPage.jsp</result>
 		</action>
 
-
+		<action name="mainFramePage" class="com.parkcharge.car.action.EmployeeAction" method="mainFramePage">
+			<result name="success">/mainframe.jsp</result>
+		</action>
 		<!-- Json数据部分 -->
 		<action name="Employee_getJsonList" class="com.parkcharge.car.action.EmployeeAction" method="getJsonList">
 			<result type="json">

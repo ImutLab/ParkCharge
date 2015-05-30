@@ -12,12 +12,14 @@ function checkLogin() {
 		return;
 	}
 
-	var data = {
-		'uname' : uname,
-		'upass' : upass
-	};
+	var data = {'uname' : uname,'upass' : upass};
 	$.getJSON('/ParkCharge/login', data, function(json) {
-		$('#frmLogin').submit();
+		if (json.data == true) {
+			alert("登录成功!");
+			$('#frmLogin').submit();
+		} else {
+			alert("用户名或密码错误,登录失败");
+		}
 	});
 }
 

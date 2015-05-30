@@ -2,8 +2,12 @@ package com.parkcharge.sys.action;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.chenjie.util.EncryptUtils;
 import com.opensymphony.xwork2.ActionContext;
 import com.parkcharge.base.action.BaseAction;
 import com.parkcharge.base.action.BaseActionImpl;
@@ -108,12 +112,12 @@ public class OperatorAction extends BaseActionImpl implements BaseAction {
 		Map<String, Object> map_json = new HashMap<String, Object>();
 		operator = operatorService.login(uname, upass);
 		if (operator == null) {
-			map_json.put("data", "false");
+			map_json.put("data", false);
 			jsonobj = JSONObject.fromObject(map_json);
 			return SUCCESS;
 		}
 
-		map_json.put("data", "true");
+		map_json.put("data", true);
 		jsonobj = JSONObject.fromObject(map_json);
 		ActionContext.getContext().getSession().put("operator", operator);
 		return SUCCESS;
@@ -126,6 +130,7 @@ public class OperatorAction extends BaseActionImpl implements BaseAction {
 	 */
 	public String editPass() {
 		operator = (Operator) ActionContext.getContext().getSession().get("operator");
+		System.out.println("session pass:"+operator.getPass()+",oldPass:"+oldPass+",oldPassMd5:"+EncryptUtils.MD5(oldPass)+",upass:"+upass);
 		boolean flag_success = operatorService.editPass(operator, oldPass, upass);
 
 		Map<String, Object> map_json = new HashMap<String, Object>(3);

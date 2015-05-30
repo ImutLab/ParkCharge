@@ -45,6 +45,12 @@
 						alert("请输入新密码...");
 						return;
 					}
+					
+					if(newPass.length<=5){
+						alert("新密码长度不得低于6位...");
+						return;
+					}
+					
 					var upass=$('#upass').val();
 					if(upass==null || upass.length==0){
 						alert("请输入确认密码...");
@@ -65,7 +71,7 @@
 						success:function(json){
 							if(json.data==true){
 								alert("修改密码成功...");
-								$.mobile.changePage('/ParkCharge/mainFramePage');
+								location.href='/ParkCharge/mainFramePage';
 							}else{
 								alert("修改密码失败，旧密码不正确...");
 							}

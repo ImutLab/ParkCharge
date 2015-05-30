@@ -21,10 +21,9 @@
 				<thead>
 					<tr>
 						<th data-priority="1">编号</th>
-						<th data-priority="4">操作类型</th>
-						<th data-priority="2">操作内容</th>
-						<th data-priority="3">操作时间</th>
-						<th data-priority="5">管理员</th>
+						<th data-priority="2">操作类型</th>
+						<th data-priority="3">操作内容</th>
+						<th data-priority="4">操作时间</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -34,7 +33,6 @@
 						<td><s:property value="actionName" /></td>
 						<td><s:property value="otherInfo" /></td>
 						<td><s:property value="actionDate" /></td>
-						<td><s:property value="manager" /></td>
 					</tr>
 					</s:iterator>
 				</tbody>

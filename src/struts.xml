@@ -24,10 +24,6 @@
 			<result name="login_mobile">/mobile.jsp</result>
 		</global-results>
 
-		<action name="mainFramePage" class="com.parkcharge.car.action.EmployeeAction" method="mainFramePage">
-			<result name="success">/mainframe.jsp</result>
-		</action>
-
 		<!-- 操作员登录 -->
 		<action name="login" class="com.parkcharge.sys.action.OperatorAction" method="login">
 			<result type="json">
