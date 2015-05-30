@@ -41,11 +41,7 @@
 			<script type="text/javascript">
 				//修改车辆品牌
 				function editPage(car_brand_id){
-					var data={'id':car_brand_id};
-					$.mobile.changePage('/ParkCharge/CarBrand_editPage',{
-						type:'post',
-						data:data,
-					}); 
+					location.href='/ParkCharge/CarBrand_editPage?id='+car_brand_id;
 				}
 				
 				//删除车辆品牌
@@ -56,7 +52,7 @@
 						$.getJSON('/ParkCharge/CarBrand_del',data,function(json){
 							if(json.data==true){
 								alert("删除车辆品牌成功...");
-								$.mobile.changePage('/ParkCharge/mainFramePage');
+								location.href='/ParkCharge/CarBrand_jsonListPage';
 							}else{
 								alert("删除失败,该品牌已经被使用...");
 							}

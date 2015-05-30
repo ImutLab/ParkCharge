@@ -77,14 +77,7 @@
 				
 				//缴费
 				function queryCharge(){
-					var data={
-							'car.id':$('#car_car_id').val(),
-							};
-					
-					$.mobile.changePage('/ParkCharge/CarCharge_jsonListByCarIdPage',{
-						type:'post',
-						data:data,
-					});
+					location.href='/ParkCharge/CarCharge_jsonListByCarIdPage?car.id='+$('#car_car_id').val();
 				}
 				
 			</script>

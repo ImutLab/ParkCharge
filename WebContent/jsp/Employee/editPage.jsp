@@ -107,7 +107,7 @@
 						success:function(json){
 							if(json.data==true){
 								alert("修改用户信息成功...");
-								$.mobile.changePage('/ParkCharge/mainFramePage');
+								location.href='/ParkCharge/Employee_jsonListPage';
 							}else{
 								alert("修改用户信息失败...");
 							}

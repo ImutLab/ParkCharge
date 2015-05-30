@@ -33,25 +33,5 @@
 			</p>
 		</div>
 	</div>
-
-	<script type="text/javascript">
-		//提交前的校验
-		function checkLogin() {
-			var uname=$('#uname').val();
-			var upass=$('#upass').val();
-			if (uname == null || uname.length==0) {
-				alert("用户名不能为空...");
-				return;
-			}
-			
-			if (upass == null || upass.length==0) {
-				alert("密码不能为空...");
-				return;
-			}
-			
-			$('#frmLogin').submit();
-		}
-		
-	</script>
 </body>
 </html>

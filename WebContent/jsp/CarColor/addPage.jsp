@@ -42,7 +42,7 @@
 						success:function(json){
 							if(json.data==true){
 								alert("新增车辆颜色成功...");
-								$.mobile.changePage('/ParkCharge/mainFramePage');
+								localtion.href='/ParkCharge/CarColor_jsonListPage';
 							}else{
 								alert("新增失败，已有相同的车辆颜色...");
 							}

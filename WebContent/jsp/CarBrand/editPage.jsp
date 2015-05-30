@@ -45,7 +45,7 @@
 						success:function(json){
 							if(json.data==true){
 								alert("修改车辆品牌成功...");
-								$.mobile.changePage('/ParkCharge/mainFramePage');
+								location.href='/ParkCharge/CarBrand_jsonListPage';
 							}else{
 								alert("修改失败,已有相同的车辆品牌...");
 							}
