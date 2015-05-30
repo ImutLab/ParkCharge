@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--
   Licensed to the Apache Software Foundation (ASF) under one or more
   contributor license agreements.  See the NOTICE file distributed with
@@ -29,7 +30,8 @@
     <!--
     <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
     -->
-<Resource name="jdbc/DB" auth="Container"    
+
+<Resource name="jdbc/mysql_localhost_parkcharge" auth="Container"    
 user="root" password="root" 
 driverClass="com.mysql.jdbc.Driver"    
 jdbcUrl="jdbc:mysql://localhost:3306/parkcharge?characterEncoding=UTF8"    
@@ -41,4 +43,5 @@ idleConnectionTestPeriod="30"
 maxIdleTime="30"    
 factory="org.apache.naming.factory.BeanFactory"    
 type="com.mchange.v2.c3p0.ComboPooledDataSource"/>
+
 </Context>
