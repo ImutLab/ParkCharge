@@ -33,7 +33,7 @@ public class CarChargeAop {
 		log.setManager("admin");
 		log.setActionName("用户缴费");
 		log.setActionDate(DateUtils.formatDate(new Date()));
-		log.setOtherInfo("缴款人:" + car.getEmployee().getName() + ",缴款金额:" + carCharge.getMoney() + ",缴款日期:" + carCharge.getCharge_date());
+		log.setOtherInfo("缴款人:" + car.getEmployee().getName() + ",缴款金额:" + carCharge.getMoney() + ",缴款日期:" + carCharge.getCharge_date() + ",车主编号:" + car.getEmployee().getId() + ",车辆编号:" + car.getId());
 
 		logService.add(log);
 	}

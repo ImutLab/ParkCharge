@@ -30,7 +30,8 @@ public class CarAop {
 		log.setActionDate(DateUtils.formatDate(new Date()));
 		log.setActionName("车辆注销");
 		log.setManager("admin");
-		log.setOtherInfo("车主姓名:" + car.getEmployee().getName() + ",车辆品牌:" + car.getCar_brand().getName() + ",车辆颜色:" + car.getCar_color().getName());
+		log.setOtherInfo("车主姓名:" + car.getEmployee().getName() + ",车辆品牌:" + car.getCar_brand().getName() + ",车辆颜色:" + car.getCar_color().getName() + ",车主编号:" + car.getEmployee().getId() + ",车辆编号:"
+				+ car.getId());
 
 		logService.add(log);
 	}

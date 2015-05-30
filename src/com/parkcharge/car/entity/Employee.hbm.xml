@@ -41,6 +41,7 @@
 		]]>
 	</sql-query>
 	
+	<!-- 根据人员id来查询人员json数据 -->
 	<sql-query name="Employee.getJsonEmployeeCarByEmpId">
 		<![CDATA[
 		select car_id,car_num,e.id_card,
@@ -63,6 +64,7 @@
 		]]>
 	</sql-query>
 	
+	<!-- 查询人员json数据，关联车辆品牌、车辆颜色、收费信息 -->
 	<sql-query name="Employee.getJsonListUnionBrandColorCharge">
 		<![CDATA[
 		select c.car_id,e.employee_id,e.name emp_name,car_num,e.id_card,

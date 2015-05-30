@@ -36,10 +36,21 @@
 	<!-- 根据车辆id来查询改车辆的下次过期日期 -->
 	<sql-query name="CarCharge.query_next_expire_date_by_car_id">
 		<![CDATA[
-		select DATE_FORMAT(DATE_ADD(min(c_ch.charge_date),INTERVAL round(datediff(max(c_ch.expire_date),min(c_ch.charge_date))/30)+1 MONTH),'%Y-%m-%d')
+		/**根据第一次收费的收费日期、最后一次收费的过期日期来进行计算下次过期日期**/
+		select DATE_FORMAT(DATE_ADD(charge_date,INTERVAL round(datediff(c_ch.expire_date,c_ch.charge_date)/30)+1 MONTH),'%Y-%m-%d')
 		as next_expire_date 
-		from car_charge c_ch
-		where c_ch.car_id=:car_id 
+		from (
+		/**将第一次收费的收费日期取出**/
+		select c_mi.car_id,charge_date,c_ma.expire_date from (
+		select car_id,charge_date from car_charge c_ch_first where c_ch_first.car_charge_id in (
+		select min(car_charge_id) from car_charge c_min where car_id=:car_id ) ) c_mi
+		left join 
+		/**将最后一次收费的过期日期取出**/
+		(select car_id,expire_date from (
+		select car_id,expire_date from car_charge c_ch_last where c_ch_last.car_charge_id in(
+		select max(car_charge_id) from car_charge c_max where car_id=:car_id ) ) c_max1 ) c_ma
+		on c_mi.car_id=c_ma.car_id
+		) c_ch
 		]]>
 	</sql-query>
 	
@@ -54,7 +65,7 @@
 	<!-- 欠费查询 -->
 	<sql-query name="CarCharge.getJsonListExpire">
 		<![CDATA[
-		select c_ch_main.car_id,expire_date,c.car_num,e.name as emp_name,c_b.name as car_brand_name,c_c.name as car_color_name from (
+		select c_ch_main.car_id,expire_date,c.car_num,e.employee_id,e.name as emp_name,c_b.name as car_brand_name,c_c.name as car_color_name from (
 		select car_id,max(c_ch.expire_date) expire_date from car_charge c_ch
 		group by car_id ) c_ch_main
 		left join car c

@@ -35,7 +35,7 @@ public class EmployeeAop {
 		log.setActionName("新户登记");
 		if (returnValue == true) {
 			log.setOtherInfo("登记成功!新户名称:" + employee.getName() + ",车辆品牌:" + car.getCar_brand().getName() + ",车辆颜色:" + car.getCar_color().getName() + ",收费金额:" + carCharge.getMoney() + ",收费日期:"
-					+ carCharge.getCharge_date());
+					+ carCharge.getCharge_date() + ",车主编号:" + car.getEmployee().getId() + ",车辆编号:" + car.getId());
 		} else {
 			log.setOtherInfo("登记失败!");
 		}
