@@ -41,7 +41,7 @@
 			<script type="text/javascript">
 				//修改车辆颜色
 				function editPage(car_color_id){
-					localtion.href='/ParkCharge/CarColor_editPage?id='+car_color_id;
+					location.href='/ParkCharge/CarColor_editPage?id='+car_color_id;
 				}
 				
 				//删除车辆颜色
@@ -52,7 +52,7 @@
 						$.getJSON('/ParkCharge/CarColor_del',data,function(json){
 							if(json.data==true){
 								alert("删除车辆颜色成功...");
-								localtion.href='/ParkCharge/CarColor_jsonListPage';
+								location.href='/ParkCharge/CarColor_jsonListPage';
 							}else{
 								alert("该车辆颜色已经被使用...");
 							}

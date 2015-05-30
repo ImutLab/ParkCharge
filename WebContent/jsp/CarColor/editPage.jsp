@@ -45,7 +45,7 @@
 						success:function(json){
 							if(json.data==true){
 								alert("修改车辆颜色成功...");
-								localtion.href='/ParkCharge/CarColor_jsonListPage';
+								location.href='/ParkCharge/CarColor_jsonListPage';
 							}else{
 								alert("修改失败，已有相同的车辆颜色...");
 							}
