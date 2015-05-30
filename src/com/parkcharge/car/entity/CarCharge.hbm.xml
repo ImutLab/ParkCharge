@@ -23,7 +23,7 @@
 			</column>
 		</property>
 		
-		<many-to-one name="car" class="Car" column="car_id" lazy="false" foreign-key="car_id"  />
+		<many-to-one name="car" class="Car" column="car_id" lazy="false" />
 	</class>
 	
 	<!-- 根据缴费日期来查询过期日期 -->

@@ -19,6 +19,11 @@
 				expression="execution(* com.parkcharge.car.service.EmployeeServiceImpl.add(com.parkcharge.car.entity.Employee,com.parkcharge.car.entity.Car,com.parkcharge.car.entity.CarCharge)) and args(employee,car,carCharge)"
 				id="cut_add_Employee" />
 			<aop:after-returning method="logAddEmployee" returning="returnValue" pointcut-ref="cut_add_Employee" />
+			<!-- 修改用户记录 -->
+			<aop:pointcut
+				expression="execution(* com.parkcharge.car.service.EmployeeServiceImpl.edit(com.parkcharge.car.entity.Employee,com.parkcharge.car.entity.Car)) and args(employee,car)"
+				id="cut_edit_Employee" />
+			<aop:after-returning method="logEditEmployee" returning="returnValue" pointcut-ref="cut_edit_Employee" />
 		</aop:aspect>
 	</aop:config>
 </beans>

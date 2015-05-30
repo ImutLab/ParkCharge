@@ -17,6 +17,7 @@
 			<p>用户管理</p>
 		</div>
 		<div data-role="content">
+			<a href="/ParkCharge/Employee_addPage" >新户登记</a>
 			<table data-role="table" id="table-collumn-toggle" data-mode="columntoggle" class="ui-responsive table-stroke" >
 				<thead>
 					<tr>
