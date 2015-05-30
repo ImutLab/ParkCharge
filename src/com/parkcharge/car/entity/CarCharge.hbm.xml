@@ -23,7 +23,7 @@
 			</column>
 		</property>
 		
-		<many-to-one name="car" class="Car" column="car_id" />
+		<many-to-one name="car" class="Car" column="car_id" lazy="false" foreign-key="car_id"  />
 	</class>
 	
 	<!-- 根据缴费日期来查询过期日期 -->
@@ -43,12 +43,12 @@
 		/**将第一次收费的收费日期取出**/
 		select c_mi.car_id,charge_date,c_ma.expire_date from (
 		select car_id,charge_date from car_charge c_ch_first where c_ch_first.car_charge_id in (
-		select min(car_charge_id) from car_charge c_min where car_id=:car_id ) ) c_mi
+		select min(car_charge_id) from car_charge c_min where car_id=:car_id group by car_id) ) c_mi
 		left join 
 		/**将最后一次收费的过期日期取出**/
 		(select car_id,expire_date from (
 		select car_id,expire_date from car_charge c_ch_last where c_ch_last.car_charge_id in(
-		select max(car_charge_id) from car_charge c_max where car_id=:car_id ) ) c_max1 ) c_ma
+		select max(car_charge_id) from car_charge c_max where car_id=:car_id group by car_id) ) c_max1 ) c_ma
 		on c_mi.car_id=c_ma.car_id
 		) c_ch
 		]]>

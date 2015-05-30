@@ -101,11 +101,20 @@ public class OperatorAction extends BaseActionImpl implements BaseAction {
 	 * @return
 	 */
 	public String login() {
-		operator = operatorService.login(uname, upass);
-		if (operator == null) {
+		if (uname == null || uname.length() == 0 || upass == null || upass.length() == 0) {
 			return "login_mobile";
 		}
 
+		Map<String, Object> map_json = new HashMap<String, Object>();
+		operator = operatorService.login(uname, upass);
+		if (operator == null) {
+			map_json.put("data", "false");
+			jsonobj = JSONObject.fromObject(map_json);
+			return SUCCESS;
+		}
+
+		map_json.put("data", "true");
+		jsonobj = JSONObject.fromObject(map_json);
 		ActionContext.getContext().getSession().put("operator", operator);
 		return SUCCESS;
 	}

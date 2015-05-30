@@ -27,9 +27,9 @@
 		<!-- <action name="CarCharge_add" class="com.parkcharge.car.action.CarChargeAction" method="add">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action> -->
-		<action name="CarCharge_del" class="com.parkcharge.car.action.CarChargeAction" method="del">
+		<!-- <action name="CarCharge_del" class="com.parkcharge.car.action.CarChargeAction" method="del">
 			<result name="success" type="redirectAction">jsonListPage</result>
-		</action>
+		</action> -->
 		<action name="CarCharge_edit" class="com.parkcharge.car.action.CarChargeAction" method="edit">
 			<result name="success" type="redirectAction">jsonListPage</result>
 		</action>
@@ -50,6 +50,12 @@
 		</action>
 		<!-- 添加缴费记录返回json-->
 		<action name="CarCharge_add" class="com.parkcharge.car.action.CarChargeAction" method="add">
+			<result type="json">
+				<param name="root">jsonobj</param>
+			</result>
+		</action>
+		<!-- 删除缴费记录 -->
+		<action name="CarCharge_del" class="com.parkcharge.car.action.CarChargeAction" method="del">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>

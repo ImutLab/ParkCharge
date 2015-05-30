@@ -3,12 +3,16 @@ package com.parkcharge.car.action;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import com.parkcharge.base.action.BaseAction;
 import com.parkcharge.base.action.BaseActionImpl;
 import com.parkcharge.car.entity.Car;
 import com.parkcharge.car.entity.CarCharge;
+import com.parkcharge.car.entity.Employee;
 import com.parkcharge.car.service.CarChargeService;
 import com.parkcharge.car.service.CarService;
 import com.parkcharge.car.service.EmployeeService;
@@ -25,8 +29,17 @@ public class CarChargeAction extends BaseActionImpl implements BaseAction {
 
 	private CarCharge carCharge;
 	private Car car;
+	private Employee employee;
 	List<Map<String, Object>> list_car_charge;
 	List<Map<String, Object>> list_employee;
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
 
 	public List<Map<String, Object>> getList_employee() {
 		return list_employee;
@@ -71,6 +84,17 @@ public class CarChargeAction extends BaseActionImpl implements BaseAction {
 
 	@Override
 	public String del() {
+		Map<String, Object> map_json = new HashMap<String, Object>();
+		try {
+			carCharge = carChargeService.getEntityById(id);
+			carChargeService.del(carCharge);
+			map_json.put("data", "删除缴费记录成功!");
+		} catch (Exception e) {
+			map_json.put("data", "删除失败!"+e.getCause().toString().replace("java.lang.Throwable:", ""));
+			e.printStackTrace();
+		}
+
+		jsonobj = JSONObject.fromObject(map_json);
 		return SUCCESS;
 	}
 
@@ -81,7 +105,7 @@ public class CarChargeAction extends BaseActionImpl implements BaseAction {
 
 	@Override
 	public String addPage() {
-		list_employee=employeeService.queryByNameSql("Employee.getJsonList", null);
+		list_employee = employeeService.queryByNameSql("Employee.getJsonList", null);
 		return SUCCESS;
 	}
 
@@ -92,7 +116,7 @@ public class CarChargeAction extends BaseActionImpl implements BaseAction {
 
 	@Override
 	public String jsonListPage() {
-		list_employee=employeeService.queryByNameSql("Employee.getJsonList", null);
+		list_employee = employeeService.queryByNameSql("Employee.getJsonList", null);
 		return SUCCESS;
 	}
 
@@ -120,6 +144,8 @@ public class CarChargeAction extends BaseActionImpl implements BaseAction {
 	 */
 	public String jsonListByCarIdPage() {
 		Map<String, Object> queryParams = new HashMap<String, Object>();
+		car = carService.getEntityById(car.getId());
+		employee = car.getEmployee();
 		queryParams.put("car_id", car.getId());
 		list_car_charge = carChargeService.queryByNameSql("CarCharge.getJsonListCarChargeByCarId", queryParams);
 		return SUCCESS;

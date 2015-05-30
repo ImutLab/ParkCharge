@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="./js/jqueryMobile/jquery.mobile-1.4.5.min.css" />
 <script src="./js/jqueryMobile/jquery.min.js"></script>
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="./js/common.js" ></script>
 </head>
 <body>
 	<div data-role="page">
@@ -51,10 +52,6 @@
 			$('#frmLogin').submit();
 		}
 		
-		//返回到主页
-		function goHome(){
-			$.mobile.changePage('/ParkCharge/mainFramePage'); 
-		}
 	</script>
 </body>
 </html>

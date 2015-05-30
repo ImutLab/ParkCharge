@@ -25,4 +25,12 @@ public class CarChargeServiceImpl extends Hibernate3CRUDImpl<CarCharge> implemen
 		return car.getId();
 	}
 
+	@Override
+	public void del(CarCharge t) {
+		super.del(t);
+	}
+	
+	
+	
+
 }

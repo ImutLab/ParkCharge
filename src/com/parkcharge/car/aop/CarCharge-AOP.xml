@@ -14,11 +14,16 @@
 
 	<aop:config>
 		<aop:aspect id="carChargeAop" ref="carChargeAop">
-			<!-- 记录用户修改密码 -->
+			<!-- 记录添加收费 -->
 			<aop:pointcut
 				expression="execution(* com.parkcharge.car.service.CarChargeServiceImpl.add(com.parkcharge.car.entity.CarCharge,com.parkcharge.car.entity.Car)) and args(carCharge,car)"
 				id="cut_add_carCharge" />
 			<aop:after method="logAddCarCharge" pointcut-ref="cut_add_carCharge" />
+			<!-- 记录删除收费 -->
+			<aop:pointcut
+				expression="execution(* com.parkcharge.car.service.CarChargeServiceImpl.del(com.parkcharge.car.entity.CarCharge)) and args(carCharge)"
+				id="cut_del_carCharge" />
+			<aop:before method="delCheck" pointcut-ref="cut_del_carCharge" />
 		</aop:aspect>
 	</aop:config>
 </beans>

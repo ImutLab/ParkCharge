@@ -23,16 +23,18 @@
 		<global-results>
 			<result name="login_mobile">/mobile.jsp</result>
 		</global-results>
-		
+
 		<action name="mainFramePage" class="com.parkcharge.car.action.EmployeeAction" method="mainFramePage">
 			<result name="success">/mainframe.jsp</result>
 		</action>
 
 		<!-- 操作员登录 -->
 		<action name="login" class="com.parkcharge.sys.action.OperatorAction" method="login">
-			<result name="success">/mainframe.jsp</result>
+			<result type="json">
+				<param name="root">jsonobj</param>
+			</result>
 		</action>
-
+		
 	</package>
 
 	<include file="com/parkcharge/car/struts/Car.xml" />

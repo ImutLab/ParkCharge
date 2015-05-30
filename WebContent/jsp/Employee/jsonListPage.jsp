@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="./js/jqueryMobile/jquery.mobile-1.4.5.min.css" />
 <script src="./js/jqueryMobile/jquery.min.js"></script>
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="./js/common.js" ></script>
 </head>
 <body>
 	<div data-role="page">
@@ -45,17 +46,7 @@
 			<script type="text/javascript">
 				//用户注销
 				function editPage(employee_id){
-					var data={'id':employee_id};
-					
-					$.mobile.changePage('/ParkCharge/Employee_editPage',{
-						type:'post',
-						data:data,
-					}); 
-				}
-				
-				//返回到主页
-				function goHome(){
-					$.mobile.changePage('/ParkCharge/mainFramePage'); 
+					location.href='/ParkCharge/Employee_editPage?id='+employee_id;
 				}
 			</script>
 		</div>
