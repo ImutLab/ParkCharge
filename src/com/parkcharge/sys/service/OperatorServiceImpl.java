@@ -61,7 +61,7 @@ public class OperatorServiceImpl extends Hibernate3CRUDImpl<Operator> implements
 		Operator operator = new Operator();
 		operator.setName(uname);
 		operator.setPass(EncryptUtils.MD5("123456"));
-		operator.setEmail("908311595@qq.com");
+		operator.setEmail("email@qq.com");
 
 		this.add(operator);
 	}
