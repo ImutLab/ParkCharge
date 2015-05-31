@@ -20,7 +20,7 @@
 		</div>
 		<div data-role="content">
 			<div data-role="filedcontain">
-				初始化安装成功!<a href="#" onclick="goHome()">返回到登录页</a>
+				初始化安装成功!&nbsp;初始用户名:&nbsp;admin,初始密码:&nbsp;123456&nbsp;&nbsp;&nbsp;&nbsp;<a href="mobile.jsp" >返回到登录页</a>
 			</div>
 		</div>
 		<div data-role="footer" align="center" data-position="fixed">

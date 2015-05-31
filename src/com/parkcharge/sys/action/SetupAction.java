@@ -2,6 +2,7 @@ package com.parkcharge.sys.action;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.chenjie.util.FileUtils;
 import com.parkcharge.base.action.BaseAction;
 import com.parkcharge.base.action.BaseActionImpl;
 import com.parkcharge.car.service.CarBrandService;
@@ -16,6 +17,16 @@ public class SetupAction extends BaseActionImpl implements BaseAction {
 	private CarColorService carColorService;
 	@Autowired
 	private OperatorService operatorService;
+
+	private String fileName;// 文件名
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 
 	@Override
 	public String add() {
@@ -85,6 +96,8 @@ public class SetupAction extends BaseActionImpl implements BaseAction {
 		if (row_count == 0) {
 			carColorService.addDefaultCarColor();
 		}
+
+		FileUtils.removeFile(fileName);
 
 		return SUCCESS;
 	}

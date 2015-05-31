@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.chenjie.util.FileUtils" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
@@ -44,6 +45,20 @@
 			<p>
 				version
 				<s:property value="#application.version" />
+			</p>
+			<p>
+				<%
+					//如果在当前文件夹下存在install.inf则显示初始化安装连接
+					String filePath = request.getRealPath("/");
+					String fileName = "install.inf";
+					String fullFileName = filePath + fileName;
+
+					if (FileUtils.fileExists(fullFileName)) {
+				%>
+					<a href="/ParkCharge/install?fileName=<%=fullFileName %>">初始化安装</a>
+				<%
+					}
+				%>
 			</p>
 		</div>
 	</div>
