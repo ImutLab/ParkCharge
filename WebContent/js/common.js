@@ -29,6 +29,7 @@ function checkLogin() {
 
 // 数据备份
 function backupDB() {
+	$('#btn_backup').attr("style","display:none");
 	$.getJSON('/ParkCharge/SystemManager_backupDB', null, function(json) {
 		alert(json.data);
 	});
