@@ -13,11 +13,18 @@ http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
 	default-lazy-init="false">
 	
 	<task:scheduled-tasks>
+		<!-- 定时调用方式，cron的参数为  秒 分 时 日 月 （年可省略） -->
 		<task:scheduled ref="backupDatabaseTask" method="backupDB" cron="0 0 0 * * ?" />
 	</task:scheduled-tasks>
 	
 	<task:scheduled-tasks>
+		<!-- 定时调用方式，cron的参数为  秒 分 时 日 月 （年可省略） -->
 		<task:scheduled ref="backupDatabaseTask" method="backupDB" cron="0 0 12 * * ?" />
 	</task:scheduled-tasks>
+	
+<!-- 	<task:scheduled-tasks >
+		延时调用方式，fix delay的时间以毫秒计算
+		<task:scheduled ref="backupDatabaseTask" method="testDelay" fixed-delay="5000" />
+	</task:scheduled-tasks> -->
 	
 </beans>

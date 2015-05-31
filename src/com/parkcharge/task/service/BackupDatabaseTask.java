@@ -61,4 +61,11 @@ public class BackupDatabaseTask {
 		return new File("").getAbsolutePath();
 	}
 
+	/**
+	 * 测试延时调用任务
+	 */
+	public void testDelay() {
+		System.out.println("测试延时任务中...");
+	}
+
 }
