@@ -31,7 +31,7 @@
 		<servlet-class>com.parkcharge.base.action.InitProjectInfo</servlet-class>
 		<init-param>
 			<param-name>version</param-name>
-			<param-value>1.2.0</param-value>
+			<param-value>1.2.1</param-value>
 		</init-param>
 		<init-param>
 			<param-name>projectName</param-name>

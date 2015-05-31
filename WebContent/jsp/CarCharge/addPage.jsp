@@ -71,6 +71,11 @@
 					//获取用户的信息
 					function getEmployeeInfo(){
 						var employee_id=$('#employee_id').val();
+						//判断一下，如果人员的id为空，则不执行查询
+						if(employee_id==null || employee_id.length==0){
+							return;
+						}
+						
 						$.getJSON('/ParkCharge/Employee_getJsonEmployeeCarByEmpId?id='+employee_id,null,function(json){
 							var data=json.data;
 							$('#employee_id_card').val(data.id_card);

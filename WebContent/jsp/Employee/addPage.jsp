@@ -90,7 +90,6 @@
 						return false;
 					}
 					
-					
 					var carCharge_money=$('#carCharge_money').val();
 					if(carCharge_money==null || carCharge_money.length==0){
 						alert("请输入缴费金额...");
@@ -103,14 +102,27 @@
 						return false;
 					}
 					
+					/**增加了车辆颜色检测**/
+					var car_car_color_id=$('#car_car_color_id').val();
+					if(car_car_color_id==null || car_car_color_id.length==0){
+						alert("请选择车辆颜色...");
+						return false;
+					}
+					
+					/**增加了车辆品牌检测**/
+					var car_car_brand_id=$('#car_car_brand_id').val();
+					if(car_car_brand_id==null || car_car_brand_id.length==0){
+						alert("请选择车辆品牌...");
+						return false;
+					}
 					
 					var data={
 							'employee.name':employee_name,
 							'employee.id_card':employee_id_card,
 							'employee.gender':$('#employee_gender').val(),
 							'car.car_num':$('#car_car_num').val(),
-							'car.car_color.id':$('#car_car_color_id').val(),
-							'car.car_brand.id':$('#car_car_brand_id').val(),
+							'car.car_color.id':car_car_color_id,
+							'car.car_brand.id':car_car_brand_id,
 							'car.car_type':$('#car_car_type').val(),
 							'carCharge.money':carCharge_money,
 							'carCharge.charge_date':carCharge_charge_date

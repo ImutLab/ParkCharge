@@ -60,6 +60,11 @@
 					//获取用户的信息
 					function getEmployeeInfo(){
 						var employee_id=$('#employee_id').val();
+						//判断一下，如果人员的id为空，则不执行查询
+						if(employee_id==null || employee_id.length==0){
+							return;
+						}
+						
 						$.getJSON('/ParkCharge/Employee_getJsonEmployeeCarByEmpId?id='+employee_id,null,function(json){
 							var data=json.data;
 							$('#employee_id_card').val(data.id_card);
@@ -75,8 +80,15 @@
 					getEmployeeInfo();
 				});
 				
-				//缴费
+				//缴费记录查询
 				function queryCharge(){
+					var employee_id=$('#employee_id').val();
+					//判断一下，如果人员的id为空，则不执行查询
+					if(employee_id==null || employee_id.length==0){
+						alert("请先选择人员后再点击查询...");
+						return;
+					}
+					
 					location.href='/ParkCharge/CarCharge_jsonListByCarIdPage?car.id='+$('#car_car_id').val();
 				}
 				

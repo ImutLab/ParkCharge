@@ -87,6 +87,20 @@
 						return false;
 					}
 					
+					/**增加了车辆颜色检测**/
+					var car_car_color_id=$('#car_car_color_id').val();
+					if(car_car_color_id==null || car_car_color_id.length==0){
+						alert("请选择车辆颜色...");
+						return false;
+					}
+					
+					/**增加了车辆品牌检测**/
+					var car_car_brand_id=$('#car_car_brand_id').val();
+					if(car_car_brand_id==null || car_car_brand_id.length==0){
+						alert("请选择车辆品牌...");
+						return false;
+					}
+					
 					
 					var data={
 							'employee.id':$('#hidden_employee_id').val(),
