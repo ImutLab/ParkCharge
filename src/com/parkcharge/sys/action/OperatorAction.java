@@ -239,7 +239,7 @@ public class OperatorAction extends BaseActionImpl implements BaseAction {
 		map_json.put("data", false);
 		try {
 			operator = (Operator) ActionContext.getContext().getSession().get("operator");
-			simpleMailSender.sendMail("908311595@qq.com", "停车收费系统(" + suggest_type + ")", suggest_content+",我的邮箱地址:"+operator.getEmail());
+			simpleMailSender.sendMail("908311595@qq.com", "停车收费系统(" + suggest_type + ")", suggest_content+"(我的邮箱地址:"+operator.getEmail()+")");
 			simpleMailSender.sendMail(operator.getEmail(), "停车收费系统(" + suggest_type + ")", "您发送的建议我们已收到，请等待软件组回复，谢谢！");
 			map_json.put("data", true);
 		} catch (Exception e) {
