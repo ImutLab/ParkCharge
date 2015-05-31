@@ -20,6 +20,10 @@
 		<action name="Operator_editPassPage" class="com.parkcharge.sys.action.OperatorAction" method="editPassPage">
 			<result name="success">/jsp/Operator/editPassPage.jsp</result>
 		</action>
+		<!-- 忘记密码界面 -->
+		<action name="Operator_forgetPassPage" class="com.parkcharge.sys.action.OperatorAction" method="forgetPassPage">
+			<result name="success">/forgetPassPage.jsp</result>
+		</action>
 		
 		<!-- 数据处理部分 -->
 		<action name="Operator_add" class="com.parkcharge.sys.action.OperatorAction" method="add">
@@ -46,6 +50,12 @@
 		</action>
 		<!-- 修改密码 -->
 		<action name="Operator_editPass" class="com.parkcharge.sys.action.OperatorAction" method="editPass">
+			<result type="json">
+				<param name="root">jsonobj</param>
+			</result>
+		</action>
+		<!-- 找回密码 -->
+		<action name="Operator_forgetPass" class="com.parkcharge.sys.action.OperatorAction" method="forgetPass">
 			<result type="json">
 				<param name="root">jsonobj</param>
 			</result>

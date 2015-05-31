@@ -17,5 +17,10 @@
 				<comment>密码</comment>
 			</column>
 		</property>
+		<property name="email">
+			<column name="email" length="200" not-null="true">
+				<comment>邮箱地址</comment>
+			</column>
+		</property>
 	</class>
 </hibernate-mapping>

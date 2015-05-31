@@ -28,7 +28,7 @@
 		<property name="from" value="aisino18111945689@163.com" />
 	</bean>
 
-	<bean id="simpleMailSender" class="com.aiweb.mail.service.SimpleMailSender">
+	<bean id="simpleMailSender" class="com.parkcharge.mail.service.SimpleMailSender">
 		<property name="mailSender" ref="mailSender" />
 		<property name="templateMessage" ref="templateMessage" />
 	</bean>

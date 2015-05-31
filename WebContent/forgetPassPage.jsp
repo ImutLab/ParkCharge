@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IPAD端登录</title>
+<title>忘记密码</title>
 <link rel="stylesheet" href="./js/jqueryMobile/jquery.mobile-1.4.5.min.css" />
 <script src="./js/jqueryMobile/jquery.min.js"></script>
 <script src="./js/jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
@@ -22,17 +22,17 @@
 			<div data-role="filedcontain">
 				<form id="frmLogin" action="/ParkCharge/mainFramePage" method="POST" data-ajax="false">
 					<label for="uname">用户名</label> 
-					<input type="text" name="uname" id="uname" value="admin" placeholder="请输入用户名" data-clear-btn="true" /> 
-					<label for="upass">密码</label>
-					<input type="password" name="upass" id="upass" value="12345" placeholder="请输入密码" data-clear-btn="true" />
-					<div data-inline=true align="center">
-						<input type="button" class="ui-btn ui-btn-inline ui-corner-all" onclick="checkLogin()" value="登录" />
-						<input type="button" class="ui-btn ui-btn-inline ui-corner-all" onclick="forgetPassPage()" value="找回密码" />
+					<input type="text" id="forget_uname" value="" placeholder="请输入用户名" data-clear-btn="true" /> 
+					<label for="uemail">邮箱地址</label> 
+					<input type="text" id="forget_uemail" value="" placeholder="请输入邮箱地址" data-clear-btn="true" />
+					<div data-inline="true" align="center">
+						<input type="button" class="ui-btn ui-corner-all" onclick="forgetPass()" value="找回密码" />
+						<input type="button" class="ui-btn ui-corner-all" onclick="goMobile()" value="返回登录" />
 					</div>
 				</form>
 				<script type="text/javascript">
-					function forgetPassPage(){
-						location.href="/ParkCharge/Operator_forgetPassPage";
+					function goMobile(){
+						location.href="mobile.jsp";
 					}
 				</script>
 			</div>
@@ -47,5 +47,6 @@
 			</p>
 		</div>
 	</div>
+	
 </body>
 </html>

@@ -11,6 +11,7 @@ import com.chenjie.util.EncryptUtils;
 import com.opensymphony.xwork2.ActionContext;
 import com.parkcharge.base.action.BaseAction;
 import com.parkcharge.base.action.BaseActionImpl;
+import com.parkcharge.mail.service.SimpleMailSender;
 import com.parkcharge.sys.entity.Operator;
 import com.parkcharge.sys.service.OperatorService;
 
@@ -18,10 +19,21 @@ import com.parkcharge.sys.service.OperatorService;
 public class OperatorAction extends BaseActionImpl implements BaseAction {
 	@Autowired
 	private OperatorService operatorService;
+	@Autowired
+	private SimpleMailSender simpleMailSender;
 
 	private String uname;// 用户名
 	private String upass;// 密码
 	private String oldPass;// 旧密码
+	private String uemail;// 邮箱地址
+
+	public String getUemail() {
+		return uemail;
+	}
+
+	public void setUemail(String uemail) {
+		this.uemail = uemail;
+	}
 
 	private Operator operator;// 操作员
 
@@ -130,8 +142,8 @@ public class OperatorAction extends BaseActionImpl implements BaseAction {
 	 */
 	public String editPass() {
 		operator = (Operator) ActionContext.getContext().getSession().get("operator");
-		System.out.println("session pass:"+operator.getPass()+",oldPass:"+oldPass+",oldPassMd5:"+EncryptUtils.MD5(oldPass)+",upass:"+upass);
-		boolean flag_success = operatorService.editPass(operator, oldPass, upass);
+		System.out.println("session pass:" + operator.getPass() + ",oldPass:" + oldPass + ",oldPassMd5:" + EncryptUtils.MD5(oldPass) + ",upass:" + upass);
+		boolean flag_success = operatorService.editPass(operator, oldPass, upass,uemail);
 
 		Map<String, Object> map_json = new HashMap<String, Object>(3);
 		map_json.put("data", flag_success);
@@ -146,6 +158,7 @@ public class OperatorAction extends BaseActionImpl implements BaseAction {
 	 * @return
 	 */
 	public String editPassPage() {
+		operator = (Operator) ActionContext.getContext().getSession().get("operator");
 		return SUCCESS;
 	}
 
@@ -156,6 +169,36 @@ public class OperatorAction extends BaseActionImpl implements BaseAction {
 	 */
 	public String addDefaultOperator() {
 		operatorService.addDefaultOperator(uname);
+		return SUCCESS;
+	}
+
+	/**
+	 * 忘记密码
+	 * 
+	 * @return
+	 */
+	public String forgetPass() {
+		String newPass = operatorService.editForgetPass(uname, uemail);
+		Map<String, Object> map_json = new HashMap<String, Object>(3);
+		if (newPass != null && newPass.length() > 0) {
+			map_json.put("data", true);
+			// 找回密码成功，则向对方发送邮件
+			simpleMailSender.sendMail(uemail, "找回密码", "新密码:" + newPass);
+		} else {
+			map_json.put("data", false);
+		}
+
+		jsonobj = JSONObject.fromObject(map_json);
+
+		return SUCCESS;
+	}
+
+	/**
+	 * 忘记密码页
+	 * 
+	 * @return
+	 */
+	public String forgetPassPage() {
 		return SUCCESS;
 	}
 }

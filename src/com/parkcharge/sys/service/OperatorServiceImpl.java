@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.chenjie.util.EncryptUtils;
+import com.chenjie.util.StringUtils;
 import com.opensymphony.xwork2.ActionContext;
 import com.parkcharge.sys.entity.Operator;
 import com.persistent.impl.Hibernate3CRUDImpl;
@@ -35,7 +36,7 @@ public class OperatorServiceImpl extends Hibernate3CRUDImpl<Operator> implements
 	}
 
 	@Override
-	public boolean editPass(Operator operator, String oldPass, String newPass) {
+	public boolean editPass(Operator operator, String oldPass, String newPass, String uemail) {
 		if (operator == null) {
 			return false;
 		}
@@ -47,11 +48,8 @@ public class OperatorServiceImpl extends Hibernate3CRUDImpl<Operator> implements
 			return false;
 		}
 
-		if (newPass.equals(operator.getPass())) {
-			return true;
-		}
-
 		operator.setPass(newPass);
+		operator.setEmail(uemail);
 		this.edit(operator);
 
 		ActionContext.getContext().getSession().put("operator", operator);
@@ -60,11 +58,33 @@ public class OperatorServiceImpl extends Hibernate3CRUDImpl<Operator> implements
 
 	@Override
 	public void addDefaultOperator(String uname) {
-		Operator operator =new Operator();
+		Operator operator = new Operator();
 		operator.setName(uname);
-		operator.setPass(EncryptUtils.MD5("12345"));
-		
+		operator.setPass(EncryptUtils.MD5("123456"));
+		operator.setEmail("908311595@qq.com");
+
 		this.add(operator);
+	}
+
+	@Override
+	public String editForgetPass(String uname, String uemail) {
+		String newPass = null;
+		String sql_has_operator = "select 1 from operator where name=:name and email=:email";
+		Map<String, Object> queryParams = new HashMap<String, Object>();
+		queryParams.put("name", uname);
+		queryParams.put("email", uemail);
+
+		int row_count = this.getRowCountBySql(sql_has_operator, queryParams);
+
+		if (row_count > 0) {
+			newPass = StringUtils.getRandomString(6);
+			String hql_get_operator = "From Operator where name=:name and email=:email";
+			Operator operator = this.getEntityByHql(hql_get_operator, queryParams);
+			operator.setPass(EncryptUtils.MD5(newPass));
+			this.edit(operator);
+		}
+
+		return newPass;
 	}
 
 }

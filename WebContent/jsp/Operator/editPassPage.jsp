@@ -30,6 +30,10 @@
 				<label for="upass">确认密码</label>
 				<input type="password" name="upass" id="upass" data-clear-btn="true" value="" placeholder="请输入确认密码" />
 			</div>
+			<div class="ui-field-contain">
+				<label for="uemail">新邮箱地址</label>
+				<input type="text" name="uemail" id="uemail" data-clear-btn="true" value='<s:property value="operator.email"/>' placeholder="请输入新邮箱地址" />
+			</div>
 			<input type="button" class="ui-btn ui-corner-all"  onclick="editPass()" value="修改" />
 		</form>
 		<script type="text/javascript">
@@ -62,7 +66,13 @@
 						return;
 					}
 					
-					var data={'oldPass':oldPass,'upass':upass};
+					var uemail=$('#uemail').val();
+					if(uemail==null || uemail.length==0){
+						alert("请输入新邮箱地址...");
+						return;
+					}
+					
+					var data={'oldPass':oldPass,'upass':upass,'uemail':uemail};
 					
 					$.ajax({url:'/ParkCharge/Operator_editPass',
 						type:'post',

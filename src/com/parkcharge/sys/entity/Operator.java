@@ -10,6 +10,15 @@ public class Operator {
 	private int id;
 	private String name;// 用户名
 	private String pass;// 密码
+	private String email;// 邮箱地址
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public int getId() {
 		return id;

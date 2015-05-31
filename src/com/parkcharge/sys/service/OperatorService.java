@@ -28,11 +28,20 @@ public interface OperatorService extends HibernateCRUD<Operator> {
 	 * @param newPass 新密码
 	 * @return 修改成功返回true，修改失败返回false
 	 */
-	public boolean editPass(Operator operator, String oldPass, String newPass);
+	public boolean editPass(Operator operator, String oldPass, String newPass,String uemail);
 
 	/**
 	 * 添加默认操作员
 	 */
 	public void addDefaultOperator(String uname);
+
+	/**
+	 * 忘记密码
+	 * 
+	 * @param uname 用户名
+	 * @param uemail 邮箱地址
+	 * @return 找到对应用户名和邮箱地址，则返回新密码
+	 */
+	public String editForgetPass(String uname, String uemail);
 
 }
