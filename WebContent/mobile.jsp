@@ -25,7 +25,7 @@
 					<label for="uname">用户名</label> 
 					<input type="text" name="uname" id="uname" value="admin" placeholder="请输入用户名" data-clear-btn="true" /> 
 					<label for="upass">密码</label>
-					<input type="password" name="upass" id="upass" value="" placeholder="请输入密码" data-clear-btn="true" />
+					<input type="password" name="upass" id="upass" value="12345" placeholder="请输入密码" data-clear-btn="true" />
 					<div data-inline=true align="center">
 						<input type="button" class="ui-btn ui-btn-inline ui-corner-all" onclick="checkLogin()" value="登录" />
 						<input type="button" class="ui-btn ui-btn-inline ui-corner-all" onclick="forgetPassPage()" value="找回密码" />
