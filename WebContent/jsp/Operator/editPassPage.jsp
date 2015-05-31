@@ -32,7 +32,7 @@
 			</div>
 			<div class="ui-field-contain">
 				<label for="uemail">新邮箱地址</label>
-				<input type="text" name="uemail" id="uemail" data-clear-btn="true" value='<s:property value="operator.email"/>' placeholder="请输入新邮箱地址" />
+				<input type="email" name="uemail" id="uemail" data-clear-btn="true" value='<s:property value="operator.email"/>' placeholder="请输入新邮箱地址" />
 			</div>
 			<input type="button" class="ui-btn ui-corner-all"  onclick="editPass()" value="修改" />
 		</form>

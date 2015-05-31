@@ -26,6 +26,24 @@ public class OperatorAction extends BaseActionImpl implements BaseAction {
 	private String upass;// 密码
 	private String oldPass;// 旧密码
 	private String uemail;// 邮箱地址
+	private String suggest_content;// 邮件内容
+	private String suggest_type;// 建议类别
+
+	public String getSuggest_content() {
+		return suggest_content;
+	}
+
+	public void setSuggest_content(String suggest_content) {
+		this.suggest_content = suggest_content;
+	}
+
+	public String getSuggest_type() {
+		return suggest_type;
+	}
+
+	public void setSuggest_type(String suggest_type) {
+		this.suggest_type = suggest_type;
+	}
 
 	public String getUemail() {
 		return uemail;
@@ -143,7 +161,7 @@ public class OperatorAction extends BaseActionImpl implements BaseAction {
 	public String editPass() {
 		operator = (Operator) ActionContext.getContext().getSession().get("operator");
 		System.out.println("session pass:" + operator.getPass() + ",oldPass:" + oldPass + ",oldPassMd5:" + EncryptUtils.MD5(oldPass) + ",upass:" + upass);
-		boolean flag_success = operatorService.editPass(operator, oldPass, upass,uemail);
+		boolean flag_success = operatorService.editPass(operator, oldPass, upass, uemail);
 
 		Map<String, Object> map_json = new HashMap<String, Object>(3);
 		map_json.put("data", flag_success);
@@ -199,6 +217,35 @@ public class OperatorAction extends BaseActionImpl implements BaseAction {
 	 * @return
 	 */
 	public String forgetPassPage() {
+		return SUCCESS;
+	}
+
+	/**
+	 * 建议页面
+	 * 
+	 * @return
+	 */
+	public String sendSuggestPage() {
+		return SUCCESS;
+	}
+
+	/**
+	 * 发送建议
+	 * 
+	 * @return
+	 */
+	public String sendSuggest() {
+		Map<String, Object> map_json = new HashMap<String, Object>();
+		map_json.put("data", false);
+		try {
+			simpleMailSender.sendMail("908311595@qq.com", "停车收费系统(" + suggest_type + ")", suggest_content);
+			map_json.put("data", true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		jsonobj=JSONObject.fromObject(map_json);
+
 		return SUCCESS;
 	}
 }

@@ -39,6 +39,7 @@
 				<h2>系统管理</h2>
 				<ul data-role="listview" >
 					<li><a href="/ParkCharge/Operator_editPassPage">修改密码</a></li>
+					<li><a href="/ParkCharge/Operator_sendSuggestPage">功能建议</a></li>
 					<li><a href="#" onclick="backupDB()">数据备份</a></li>
 					<li><a href="/ParkCharge/Log_jsonListPage">操作记录</a></li>
 				</ul>
