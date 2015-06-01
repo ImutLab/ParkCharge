@@ -46,7 +46,7 @@ public class BackupDatabaseTask implements ServletContextAware{
 			newFileName = newFileName.replace("\\", "/");
 
 			MySQLUtils.backupDB(dataSource.getUser(), dataSource.getPassword(), "parkcharge", newFileName);
-			log.setOtherInfo("备份成功!文件名:" + newFileName);
+			log.setOtherInfo("备份成功!文件名:" + sqlFolderName + "/" + sqlFileName);
 		} catch (Exception e) {
 			log.setOtherInfo("备份失败!");
 			e.printStackTrace();
