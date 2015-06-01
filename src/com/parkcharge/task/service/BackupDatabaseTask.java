@@ -3,8 +3,11 @@ package com.parkcharge.task.service;
 import java.io.File;
 import java.util.Date;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.ServletContextAware;
 
 import com.chenjie.util.DateUtils;
 import com.chenjie.util.MySQLUtils;
@@ -13,11 +16,13 @@ import com.parkcharge.sys.entity.Log;
 import com.parkcharge.sys.service.LogService;
 
 @Service
-public class BackupDatabaseTask {
+public class BackupDatabaseTask implements ServletContextAware{
 	@Autowired
 	private ComboPooledDataSource dataSource;
 	@Autowired
 	private LogService logService;
+	
+	private ServletContext servletContext;
 
 	/**
 	 * 定时备份数据库
@@ -30,13 +35,13 @@ public class BackupDatabaseTask {
 		log.setActionName("自动备份");
 		log.setManager("admin");
 		try {
-			String filePath = getCurrentPath();
+			String filePath =servletContext.getRealPath("/");
 			filePath = filePath.substring(0, filePath.length() - 2);
 			filePath = filePath.substring(0, filePath.replace("\\", "/").lastIndexOf("/"));
 
 			String newFileName = filePath + "/backup/ParkCharge/";
 			String sqlFolderName = DateUtils.formatDateAsyyyymmdd(dt);
-			String sqlFileName = DateUtils.formatTimeAshhmiss(dt) + ".sql";
+			String sqlFileName = DateUtils.formatTimeAshhmiss(dt) + "_auto_backup.sql";
 			newFileName += sqlFolderName + "/" + sqlFileName;
 			newFileName = newFileName.replace("\\", "/");
 
@@ -66,6 +71,11 @@ public class BackupDatabaseTask {
 	 */
 	public void testDelay() {
 		System.out.println("测试延时任务中...");
+	}
+
+	@Override
+	public void setServletContext(ServletContext servletContext) {
+		this.servletContext=servletContext;
 	}
 
 }
