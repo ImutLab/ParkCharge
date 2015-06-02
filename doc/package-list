@@ -1,0 +1,12 @@
+com.parkcharge.base.action
+com.parkcharge.car.action
+com.parkcharge.car.aop
+com.parkcharge.car.entity
+com.parkcharge.car.service
+com.parkcharge.mail.service
+com.parkcharge.sys.action
+com.parkcharge.sys.aop
+com.parkcharge.sys.entity
+com.parkcharge.sys.interceptor
+com.parkcharge.sys.service
+com.parkcharge.task.service
