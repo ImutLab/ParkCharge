@@ -47,6 +47,9 @@
 				<s:property value="#application.version" />
 			</p>
 			<p>
+				<a href="#" onclick="downCzsc()">操作手册下载</a>
+			</p>
+			<p>
 				<%
 					//如果在当前文件夹下存在install.inf则显示初始化安装连接
 					String filePath = request.getRealPath("/");
