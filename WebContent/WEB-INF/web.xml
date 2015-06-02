@@ -39,7 +39,7 @@
 		</init-param>
 		<init-param>
 			<param-name>teamName</param-name>
-			<param-value>Junjie Software All Right Reserved</param-value>
+			<param-value>贵州爱信诺航天信息技术支持</param-value>
 		</init-param>
 		<load-on-startup>100</load-on-startup>
 	</servlet>
